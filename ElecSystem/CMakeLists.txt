@@ -13,6 +13,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets LinguistTools)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets LinguistTools)
+find_package(Qt6 REQUIRED COMPONENTS Sql)
+
 
 set(TS_FILES ElecSystem_zh_CN.ts)
 
@@ -52,6 +54,7 @@ else()
 endif()
 
 target_link_libraries(ElecSystem PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(ElecSystem PRIVATE Qt${QT_VERSION_MAJOR}::Sql)
 
 set_target_properties(ElecSystem PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com
