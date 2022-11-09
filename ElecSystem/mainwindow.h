@@ -2,7 +2,10 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QtSql>
+#include <QSqlDatabase>
+#include <QMessageBox>
+#include <QSqlQuery>
+#include <QDebug>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -17,11 +20,13 @@ public:
     ~MainWindow();
 
 private slots:
-    int on_pushButton_clicked();
+    void on_pushButton_clicked();
 
 private:
     Ui::MainWindow *ui;
     QString username;
     QString password;
+    QSqlDatabase database;
+    QSqlQuery query;
 };
 #endif // MAINWINDOW_H

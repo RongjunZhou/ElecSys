@@ -29,7 +29,7 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>200</x>
+      <x>210</x>
       <y>200</y>
       <width>101</width>
       <height>31</height>
@@ -49,15 +49,15 @@
      </rect>
     </property>
     <layout class="QFormLayout" name="formLayout">
-     <item row="0" column="1">
-      <widget class="QLineEdit" name="username">
+     <item row="0" column="0">
+      <widget class="QLabel" name="label">
        <property name="font">
         <font>
-         <pointsize>14</pointsize>
+         <pointsize>16</pointsize>
         </font>
        </property>
        <property name="text">
-        <string/>
+        <string>用户名</string>
        </property>
       </widget>
      </item>
@@ -80,17 +80,20 @@
          <pointsize>14</pointsize>
         </font>
        </property>
+       <property name="echoMode">
+        <enum>QLineEdit::Password</enum>
+       </property>
       </widget>
      </item>
-     <item row="0" column="0">
-      <widget class="QLabel" name="usernameLabel">
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="username">
        <property name="font">
         <font>
-         <pointsize>16</pointsize>
+         <pointsize>14</pointsize>
         </font>
        </property>
        <property name="text">
-        <string>用户名</string>
+        <string/>
        </property>
       </widget>
      </item>
