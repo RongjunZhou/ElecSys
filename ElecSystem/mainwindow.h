@@ -27,6 +27,6 @@ private:
     QString username;
     QString password;
     QSqlDatabase database;
-    QSqlQuery query;
+    QSqlQuery *query;
 };
 #endif // MAINWINDOW_H
