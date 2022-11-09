@@ -28,7 +28,9 @@ void MainWindow::on_pushButton_clicked()
     if(this->username=="Admin"){
         if(this->password=="njupt+1s"){
             QMessageBox::information(this,"提示","登陆成功");
-            //todo
+            SuperAdmin *superAdmin = new SuperAdmin();
+            superAdmin->show();
+            this->close();
         }else{
             QMessageBox::information(this,"提示","密码错误");
         }

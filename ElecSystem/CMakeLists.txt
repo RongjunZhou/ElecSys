@@ -23,6 +23,9 @@ set(PROJECT_SOURCES
         mainwindow.cpp
         mainwindow.h
         mainwindow.ui
+        superAdmin.h
+        superAdmin.cpp
+        superAdmin.ui
         ${TS_FILES}
 )
 
