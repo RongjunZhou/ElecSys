@@ -77,7 +77,7 @@
       </font>
      </property>
     </widget>
-    <widget class="QLabel" name="label1">
+    <widget class="QLabel" name="tip1">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -95,15 +95,36 @@
       <string>用户名</string>
      </property>
     </widget>
-    <widget class="QTableView" name="tableView">
+    <widget class="QTableWidget" name="sTable">
      <property name="geometry">
       <rect>
-       <x>10</x>
+       <x>0</x>
        <y>80</y>
-       <width>371</width>
-       <height>181</height>
+       <width>401</width>
+       <height>201</height>
       </rect>
      </property>
+     <property name="rowCount">
+      <number>0</number>
+     </property>
+     <property name="columnCount">
+      <number>3</number>
+     </property>
+     <attribute name="horizontalHeaderVisible">
+      <bool>false</bool>
+     </attribute>
+     <attribute name="horizontalHeaderDefaultSectionSize">
+      <number>133</number>
+     </attribute>
+     <attribute name="horizontalHeaderHighlightSections">
+      <bool>true</bool>
+     </attribute>
+     <attribute name="verticalHeaderVisible">
+      <bool>false</bool>
+     </attribute>
+     <column/>
+     <column/>
+     <column/>
     </widget>
    </widget>
    <widget class="QWidget" name="fixREC">

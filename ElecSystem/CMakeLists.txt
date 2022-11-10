@@ -26,6 +26,9 @@ set(PROJECT_SOURCES
         superAdmin.h
         superAdmin.cpp
         superAdmin.ui
+        userinfo.cpp
+        userinfo.h
+        staticResource.qrc
         ${TS_FILES}
 )
 

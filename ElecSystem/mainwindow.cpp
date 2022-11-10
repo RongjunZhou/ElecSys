@@ -28,7 +28,9 @@ void MainWindow::on_pushButton_clicked()
     if(this->username=="Admin"){
         if(this->password=="njupt+1s"){
             QMessageBox::information(this,"提示","登陆成功");
+            database.close();
             SuperAdmin *superAdmin = new SuperAdmin();
+            superAdmin->setWindowIcon(QIcon(":/icons/logo.ico"));
             superAdmin->show();
             this->close();
         }else{
