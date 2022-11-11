@@ -6,7 +6,7 @@ SuperAdmin::SuperAdmin(QWidget *parent) :
     ui(new Ui::SuperAdmin)
 {
     ui->setupUi(this);
-    database = QSqlDatabase::addDatabase("Admin");
+    database = QSqlDatabase::addDatabase("QSQLITE","superAdmin");
     database.setDatabaseName("data.db");
     database.open();
     query = new QSqlQuery(database);
@@ -34,10 +34,7 @@ void SuperAdmin::on_sButton_clicked()
                         )
         );
     }
-    ui->sTable->insertRow(userInfoList.size()+1);
-    ui->sTable->setItem(0,0,new QTableWidgetItem((QString)"用户名"));
-    ui->sTable->setItem(0,1,new QTableWidgetItem((QString)"密码"));
-    ui->sTable->setItem(0,2,new QTableWidgetItem((QString)"权限"));
+    ui->sTable->insertRow(userInfoList.size());
     for(int i = 0;i < userInfoList.size();i++){
         ui->sTable->setItem(i+1,0,new QTableWidgetItem((QString)userInfoList[i].getUsername()));
         ui->sTable->setItem(i+1,1,new QTableWidgetItem((QString)userInfoList[i].getPassword()));

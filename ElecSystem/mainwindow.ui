@@ -30,7 +30,7 @@
     <property name="geometry">
      <rect>
       <x>210</x>
-      <y>220</y>
+      <y>240</y>
       <width>101</width>
       <height>31</height>
      </rect>
@@ -43,7 +43,7 @@
     <property name="geometry">
      <rect>
       <x>130</x>
-      <y>120</y>
+      <y>150</y>
       <width>251</width>
       <height>61</height>
      </rect>
@@ -98,6 +98,19 @@
       </widget>
      </item>
     </layout>
+   </widget>
+   <widget class="QWidget" name="widget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>40</y>
+      <width>81</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/icons/logo.png);</string>
+    </property>
    </widget>
   </widget>
  </widget>
