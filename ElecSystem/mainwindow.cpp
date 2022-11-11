@@ -12,6 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
     query = new QSqlQuery(database);
     query->exec("create table userInfo(username unique,password,role)");
     query->exec("insert into userInfo(username,password,role) values ('郑霄鹏','123','1')");
+    query->exec("insert into userInfo(username,password,role) values ('郑喆','123','2')");
 }
 
 MainWindow::~MainWindow()
