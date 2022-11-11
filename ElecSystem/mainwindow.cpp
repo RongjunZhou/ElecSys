@@ -10,7 +10,7 @@ MainWindow::MainWindow(QWidget *parent)
     database.setDatabaseName("data.db");
     database.open();
     query = new QSqlQuery(database);
-    query->exec("creat table userInfo(username unique,password,role)");
+    query->exec("create table userInfo(username unique,password,role)");
     query->exec("insert into userInfo(username,password,role) values ('郑霄鹏','123','1')");
 }
 
@@ -28,7 +28,9 @@ void MainWindow::on_pushButton_clicked()
     if(this->username=="Admin"){
         if(this->password=="njupt+1s"){
             QMessageBox::information(this,"提示","登陆成功");
+            database.close();
             SuperAdmin *superAdmin = new SuperAdmin();
+            superAdmin->setWindowIcon(QIcon(":/icons/logo.ico"));
             superAdmin->show();
             this->close();
         }else{
@@ -38,12 +40,15 @@ void MainWindow::on_pushButton_clicked()
         query->prepare("select COUNT(*) from userInfo where username = :username");
         query->bindValue(":username",username);
         query->exec();
-        int count = query->next();
+        query->next();
+        int count = query->value("COUNT(*)").toInt();
+        qDebug()<<count;
         if(count){
             query->clear();
             query->prepare("select password,role from userInfo where username = :username");
             query->bindValue(":username",username);
             query->exec();
+            query->next();
             QString truePassword= query->value("password").toString();
             int role = query->value("role").toInt();
             if(truePassword==password){
