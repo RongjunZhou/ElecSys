@@ -100,7 +100,7 @@ color:rgb(255, 255, 255)</string>
          </rect>
         </property>
         <property name="text">
-         <string>查看用户</string>
+         <string>录入数据</string>
         </property>
        </widget>
       </widget>
@@ -135,7 +135,7 @@ color:rgb(255, 255, 255)</string>
 font: 26pt &quot;隶书&quot;;</string>
         </property>
         <property name="text">
-         <string>查看用户</string>
+         <string>录入数据</string>
         </property>
        </widget>
        <widget class="QTableWidget" name="tableWidget">
@@ -149,7 +149,7 @@ font: 26pt &quot;隶书&quot;;</string>
         </property>
         <row>
          <property name="text">
-          <string>用户1</string>
+          <string>eg:</string>
          </property>
         </row>
         <column>
@@ -182,6 +182,31 @@ font: 26pt &quot;隶书&quot;;</string>
           <string>每月电费</string>
          </property>
         </column>
+        <item row="0" column="0">
+         <property name="text">
+          <string>江湾城</string>
+         </property>
+        </item>
+        <item row="0" column="1">
+         <property name="text">
+          <string>1栋101</string>
+         </property>
+        </item>
+        <item row="0" column="2">
+         <property name="text">
+          <string>2022/11</string>
+         </property>
+        </item>
+        <item row="0" column="3">
+         <property name="text">
+          <string>100</string>
+         </property>
+        </item>
+        <item row="0" column="4">
+         <property name="text">
+          <string>100</string>
+         </property>
+        </item>
        </widget>
        <widget class="QPushButton" name="pushButton_add">
         <property name="geometry">
@@ -196,7 +221,7 @@ font: 26pt &quot;隶书&quot;;</string>
          <string notr="true">font: 14pt &quot;微软雅黑&quot;;</string>
         </property>
         <property name="text">
-         <string>添加用户</string>
+         <string>添加记录</string>
         </property>
        </widget>
        <widget class="QPushButton" name="pushButton_save">
@@ -220,8 +245,8 @@ font: 26pt &quot;隶书&quot;;</string>
        <widget class="QPushButton" name="pushButton_5">
         <property name="geometry">
          <rect>
-          <x>30</x>
-          <y>30</y>
+          <x>20</x>
+          <y>20</y>
           <width>91</width>
           <height>31</height>
          </rect>
@@ -236,8 +261,8 @@ font: 26pt &quot;隶书&quot;;</string>
        <widget class="QLabel" name="label_3">
         <property name="geometry">
          <rect>
-          <x>220</x>
-          <y>20</y>
+          <x>240</x>
+          <y>10</y>
           <width>221</width>
           <height>51</height>
          </rect>
