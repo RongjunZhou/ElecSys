@@ -7,6 +7,7 @@
 #include <QSqlQuery>
 #include <QDebug>
 #include "superadmin.h"
+#include "Employee.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
