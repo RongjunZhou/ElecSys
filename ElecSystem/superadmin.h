@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QSqlDatabase>
 #include <QSqlQuery>
+#include <QMessageBox>
 #include "userinfo.h"
 
 namespace Ui {
@@ -20,6 +21,8 @@ public:
 
 private slots:
     void on_sButton_clicked();
+
+    void on_fixSubmit_clicked();
 
 private:
     Ui::SuperAdmin *ui;
