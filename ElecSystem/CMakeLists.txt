@@ -29,6 +29,10 @@ set(PROJECT_SOURCES
         userinfo.cpp
         userinfo.h
         staticResource.qrc
+        Employee.cpp
+        Employee.h
+        Employee.ui
+
         ${TS_FILES}
 )
 

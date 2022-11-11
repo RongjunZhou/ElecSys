@@ -53,13 +53,14 @@ void MainWindow::on_pushButton_clicked()
             int role = query->value("role").toInt();
             if(truePassword==password){
                 QMessageBox::information(this,"提示","登陆成功");
-                switch(role){
-                case 1:
+                if(role==1){
+                    Employee * employee = new Employee();
+                    employee->setWindowIcon(QIcon(":/icons/logo.ico"));
+                    employee->show();
+                    this->close();
+                }else if(role==2){
                     //todo
-                    break;
-                case 2:
-                    //todo
-                    break;
+
                 }
             }
             else{
