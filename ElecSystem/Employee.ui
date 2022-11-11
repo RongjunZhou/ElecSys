@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Employee</class>
+ <widget class="QMainWindow" name="Employee">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>700</width>
+    <height>450</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>700</width>
+    <height>450</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>700</width>
+    <height>450</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow
+{	
+	border-image: url(:/image/eg4.jpg);
+}
+QStackedWidget QPushButton
+{
+    border-radius:5px;
+	background-color: rgb(11,195,155);
+    color:white;
+    font:normal 20pt &quot;微软雅黑&quot;;
+}
+QStackedWidget QPushButton:hover
+{
+	background-color: rgb(160,160,160);
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="1" column="0">
+     <widget class="QStackedWidget" name="stackedWidget">
+      <widget class="QWidget" name="menupage">
+       <widget class="QPushButton" name="pushButton_3">
+        <property name="geometry">
+         <rect>
+          <x>270</x>
+          <y>300</y>
+          <width>131</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>退出系统</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label">
+        <property name="geometry">
+         <rect>
+          <x>180</x>
+          <y>80</y>
+          <width>321</width>
+          <height>71</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: 28pt &quot;华文行楷&quot;;
+color:rgb(255, 255, 255)</string>
+        </property>
+        <property name="text">
+         <string>电力统计管理系统</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_2">
+        <property name="geometry">
+         <rect>
+          <x>270</x>
+          <y>240</y>
+          <width>131</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>统计用户</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton">
+        <property name="geometry">
+         <rect>
+          <x>270</x>
+          <y>180</y>
+          <width>131</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>查看用户</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="searchpage">
+       <widget class="QPushButton" name="pushButton_4">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>20</y>
+          <width>91</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: 10pt &quot;微软雅黑&quot;;</string>
+        </property>
+        <property name="text">
+         <string>返回主菜单</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_2">
+        <property name="geometry">
+         <rect>
+          <x>240</x>
+          <y>10</y>
+          <width>181</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 255, 255);
+font: 26pt &quot;隶书&quot;;</string>
+        </property>
+        <property name="text">
+         <string>查看用户</string>
+        </property>
+       </widget>
+       <widget class="QTableWidget" name="tableWidget">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>60</y>
+          <width>641</width>
+          <height>321</height>
+         </rect>
+        </property>
+        <row>
+         <property name="text">
+          <string>用户1</string>
+         </property>
+        </row>
+        <column>
+         <property name="text">
+          <string>老小区名称</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>家庭户名</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>用电的年月</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>当月峰时用电量</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>谷时用电量</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>每月电费</string>
+         </property>
+        </column>
+       </widget>
+       <widget class="QPushButton" name="pushButton_add">
+        <property name="geometry">
+         <rect>
+          <x>130</x>
+          <y>390</y>
+          <width>141</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: 14pt &quot;微软雅黑&quot;;</string>
+        </property>
+        <property name="text">
+         <string>添加用户</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_save">
+        <property name="geometry">
+         <rect>
+          <x>370</x>
+          <y>390</y>
+          <width>141</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: 14pt &quot;微软雅黑&quot;;</string>
+        </property>
+        <property name="text">
+         <string>保存信息</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="statpage">
+       <widget class="QPushButton" name="pushButton_5">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>30</y>
+          <width>91</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: 10pt &quot;微软雅黑&quot;;</string>
+        </property>
+        <property name="text">
+         <string>返回主菜单</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_3">
+        <property name="geometry">
+         <rect>
+          <x>220</x>
+          <y>20</y>
+          <width>221</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 255, 255);
+font: 26pt &quot;隶书&quot;;</string>
+        </property>
+        <property name="text">
+         <string>统计用户</string>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
