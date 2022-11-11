@@ -28,7 +28,7 @@
   <property name="styleSheet">
    <string notr="true">QMainWindow
 {	
-	border-image: url(:/image/eg4.jpg);
+	border-image: url(:/image/eg4.png);
 }
 QStackedWidget QPushButton
 {
@@ -101,6 +101,22 @@ color:rgb(255, 255, 255)</string>
         </property>
         <property name="text">
          <string>录入数据</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_6">
+        <property name="geometry">
+         <rect>
+          <x>570</x>
+          <y>30</y>
+          <width>91</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: 10pt &quot;微软雅黑&quot;;</string>
+        </property>
+        <property name="text">
+         <string>退出登录</string>
         </property>
        </widget>
       </widget>
@@ -179,7 +195,7 @@ font: 26pt &quot;隶书&quot;;</string>
         </column>
         <column>
          <property name="text">
-          <string>每月电费</string>
+          <string>每月电费(待计算)</string>
          </property>
         </column>
         <item row="0" column="0">

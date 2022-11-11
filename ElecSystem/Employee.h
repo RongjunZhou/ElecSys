@@ -30,8 +30,11 @@ private slots:
 
     void on_pushButton_save_released();
 
+    void on_pushButton_6_clicked();
+
 private:
     Ui::Employee *ui;
+    void *mainWindow;
 };
 
 #endif // EMPLOYEE_H

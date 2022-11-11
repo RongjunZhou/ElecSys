@@ -38,7 +38,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>2</number>
+    <number>3</number>
    </property>
    <widget class="QWidget" name="findREC">
     <attribute name="title">
@@ -146,6 +146,22 @@
       </property>
      </item>
     </widget>
+    <widget class="QPushButton" name="pushButton_6">
+     <property name="geometry">
+      <rect>
+       <x>300</x>
+       <y>240</y>
+       <width>91</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 10pt &quot;微软雅黑&quot;;</string>
+     </property>
+     <property name="text">
+      <string>退出登录</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="fixREC">
     <attribute name="title">
@@ -157,7 +173,7 @@
        <x>70</x>
        <y>110</y>
        <width>271</width>
-       <height>81</height>
+       <height>95</height>
       </rect>
      </property>
      <layout class="QFormLayout" name="formLayout">
@@ -249,6 +265,22 @@
       <string>提交</string>
      </property>
     </widget>
+    <widget class="QPushButton" name="pushButton_7">
+     <property name="geometry">
+      <rect>
+       <x>300</x>
+       <y>240</y>
+       <width>91</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 10pt &quot;微软雅黑&quot;;</string>
+     </property>
+     <property name="text">
+      <string>退出登录</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="delREC">
     <attribute name="title">
@@ -295,6 +327,22 @@
       </rect>
      </property>
     </widget>
+    <widget class="QPushButton" name="pushButton_8">
+     <property name="geometry">
+      <rect>
+       <x>300</x>
+       <y>240</y>
+       <width>91</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 10pt &quot;微软雅黑&quot;;</string>
+     </property>
+     <property name="text">
+      <string>退出登录</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="addREC">
     <attribute name="title">
@@ -306,7 +354,7 @@
        <x>70</x>
        <y>110</y>
        <width>271</width>
-       <height>81</height>
+       <height>95</height>
       </rect>
      </property>
      <layout class="QFormLayout" name="formLayout_2">
@@ -396,6 +444,22 @@
      </property>
      <property name="text">
       <string>输入新的用户信息</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_9">
+     <property name="geometry">
+      <rect>
+       <x>300</x>
+       <y>240</y>
+       <width>91</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 10pt &quot;微软雅黑&quot;;</string>
+     </property>
+     <property name="text">
+      <string>退出登录</string>
      </property>
     </widget>
    </widget>

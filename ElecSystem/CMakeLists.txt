@@ -32,6 +32,9 @@ set(PROJECT_SOURCES
         Employee.cpp
         Employee.h
         Employee.ui
+        staff.cpp
+        staff.h
+        staff.ui
 
         ${TS_FILES}
 )

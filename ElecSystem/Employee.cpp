@@ -1,11 +1,13 @@
 #include "Employee.h"
 #include "ui_Employee.h"
+#include "mainwindow.h"
 
 Employee::Employee(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Employee)
 {
     ui->setupUi(this);
+    this->setWindowTitle("用户端（统计员）");
 }
 
 Employee::~Employee()
@@ -57,5 +59,14 @@ void Employee::on_pushButton_add_released()
 void Employee::on_pushButton_save_released()
 {
 
+}
+
+
+void Employee::on_pushButton_6_clicked()
+{
+    //退出到主界面
+    MainWindow *loginWindow = new MainWindow();
+    loginWindow ->show();
+    delete this;
 }
 

@@ -4,8 +4,7 @@
         <file>logo.ico</file>
     </qresource>
     <qresource prefix="/image">
-        <file>eg3.jpg</file>
-        <file>eg4.jpg</file>
-        <file>eg5.jpg</file>
+        <file>eg3.png</file>
+        <file>eg4.png</file>
     </qresource>
 </RCC>
