@@ -207,7 +207,7 @@ font: 26pt &quot;隶书&quot;;</string>
          <rect>
           <x>20</x>
           <y>60</y>
-          <width>641</width>
+          <width>631</width>
           <height>321</height>
          </rect>
         </property>
@@ -243,7 +243,7 @@ font: 26pt &quot;隶书&quot;;</string>
         </column>
         <column>
          <property name="text">
-          <string>每月电费(待计算)</string>
+          <string>每月电费</string>
          </property>
         </column>
         <item row="0" column="0">

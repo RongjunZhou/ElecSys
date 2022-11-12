@@ -35,6 +35,9 @@ set(PROJECT_SOURCES
         staff.cpp
         staff.h
         staff.ui
+        meminfo.cpp
+        meminfo.h
+
 
         ${TS_FILES}
 )
@@ -68,6 +71,7 @@ endif()
 
 target_link_libraries(ElecSystem PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 target_link_libraries(ElecSystem PRIVATE Qt${QT_VERSION_MAJOR}::Sql)
+target_link_libraries(ElecSystem PRIVATE Qt6::Sql)
 
 set_target_properties(ElecSystem PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com

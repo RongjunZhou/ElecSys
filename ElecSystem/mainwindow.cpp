@@ -18,6 +18,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
+    database.close();
     delete query;
     delete ui;
 }

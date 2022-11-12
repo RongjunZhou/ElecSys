@@ -1,6 +1,7 @@
 #include "Employee.h"
 #include "ui_Employee.h"
 #include "mainwindow.h"
+#include <QSqlError>
 
 Employee::Employee(QWidget *parent) :
     QMainWindow(parent),
@@ -8,6 +9,12 @@ Employee::Employee(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setWindowTitle("用户端（统计员）");
+    database=QSqlDatabase::addDatabase("QSQLITE","employee");
+    database.setDatabaseName("employee.db");
+    database.open();
+    query = new QSqlQuery(database);
+    qDebug()<<query->exec("create table gathar(area,house,date,high,low,charge)");
+    qDebug()<<query->exec("insert into gathar(area,house,date,high,low,charge) values ('江湾城','一单元-502','2022/11','10','10','10')");
 }
 
 Employee::~Employee()
@@ -67,6 +74,7 @@ void Employee::on_pushButton_6_clicked()
     //退出到主界面
     MainWindow *loginWindow = new MainWindow();
     loginWindow ->show();
+    delete query;
     delete this;
 }
 

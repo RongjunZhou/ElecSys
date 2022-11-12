@@ -8,6 +8,7 @@
 #include <QDebug>
 #include "superadmin.h"
 #include "Employee.h"
+#include "staff.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
