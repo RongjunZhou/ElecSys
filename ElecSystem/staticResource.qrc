@@ -6,5 +6,6 @@
     <qresource prefix="/image">
         <file>eg3.png</file>
         <file>eg4.png</file>
+        <file>pic.png</file>
     </qresource>
 </RCC>
