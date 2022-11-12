@@ -1,5 +1,6 @@
 #include "superadmin.h"
 #include "ui_superadmin.h"
+#include "mainwindow.h"
 
 SuperAdmin::SuperAdmin(QWidget *parent) :
     QWidget(parent),
@@ -36,11 +37,47 @@ void SuperAdmin::on_sButton_clicked()
     }
     ui->sTable->insertRow(userInfoList.size());
     for(int i = 0;i < userInfoList.size();i++){
-        ui->sTable->setItem(i+1,0,new QTableWidgetItem((QString)userInfoList[i].getUsername()));
-        ui->sTable->setItem(i+1,1,new QTableWidgetItem((QString)userInfoList[i].getPassword()));
-        ui->sTable->setItem(i+1,2,new QTableWidgetItem(userInfoList[i].getRole()));
+        ui->sTable->setItem(i,0,new QTableWidgetItem((QString)userInfoList[i].getUsername()));
+        ui->sTable->setItem(i,1,new QTableWidgetItem((QString)userInfoList[i].getPassword()));
+        ui->sTable->setItem(i,2,new QTableWidgetItem(userInfoList[i].getRole()));
     }
     ui->sTable->show();
 
+}
+
+
+void SuperAdmin::on_pushButton_6_clicked()
+{
+    //退出到主界面
+    MainWindow *loginWindow = new MainWindow();
+    loginWindow ->show();
+    delete this;
+}
+
+
+void SuperAdmin::on_pushButton_7_clicked()
+{
+    //退出到主界面
+    MainWindow *loginWindow = new MainWindow();
+    loginWindow ->show();
+    delete this;
+}
+
+
+void SuperAdmin::on_pushButton_8_clicked()
+{
+    //退出到主界面
+    MainWindow *loginWindow = new MainWindow();
+    loginWindow ->show();
+    delete this;
+}
+
+
+void SuperAdmin::on_pushButton_9_clicked()
+{
+    //退出到主界面
+    MainWindow *loginWindow = new MainWindow();
+    loginWindow ->show();
+    delete this;
 }
 
