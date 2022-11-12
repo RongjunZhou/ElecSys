@@ -6,7 +6,7 @@
 #include <QMessageBox>
 #include <QSqlQuery>
 #include <QDebug>
-
+#include "meminfo.h"
 namespace Ui {
 class Employee;
 }

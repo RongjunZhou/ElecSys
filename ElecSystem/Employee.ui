@@ -291,7 +291,7 @@ font: 26pt &quot;隶书&quot;;</string>
        <widget class="QPushButton" name="pushButton_save">
         <property name="geometry">
          <rect>
-          <x>370</x>
+          <x>360</x>
           <y>390</y>
           <width>141</width>
           <height>31</height>
