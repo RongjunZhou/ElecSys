@@ -24,6 +24,10 @@ private slots:
 
     void on_fixSubmit_clicked();
 
+    void on_delSubmit_clicked();
+
+    void on_newSubmit_clicked();
+
 private:
     Ui::SuperAdmin *ui;
     QSqlDatabase database;

@@ -38,7 +38,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="findREC">
     <attribute name="title">
@@ -98,23 +98,23 @@
     <widget class="QTableWidget" name="sTable">
      <property name="geometry">
       <rect>
-       <x>0</x>
+       <x>10</x>
        <y>80</y>
-       <width>411</width>
-       <height>201</height>
+       <width>381</width>
+       <height>191</height>
       </rect>
      </property>
      <property name="rowCount">
-      <number>1</number>
+      <number>0</number>
      </property>
      <property name="columnCount">
       <number>3</number>
      </property>
      <attribute name="horizontalHeaderVisible">
-      <bool>false</bool>
+      <bool>true</bool>
      </attribute>
      <attribute name="horizontalHeaderDefaultSectionSize">
-      <number>133</number>
+      <number>125</number>
      </attribute>
      <attribute name="horizontalHeaderHighlightSections">
       <bool>true</bool>
@@ -122,29 +122,21 @@
      <attribute name="verticalHeaderVisible">
       <bool>false</bool>
      </attribute>
-     <row>
-      <property name="text">
-       <string>label</string>
-      </property>
-     </row>
-     <column/>
-     <column/>
-     <column/>
-     <item row="0" column="0">
+     <column>
       <property name="text">
        <string>用户名</string>
       </property>
-     </item>
-     <item row="0" column="1">
+     </column>
+     <column>
       <property name="text">
        <string>密码</string>
       </property>
-     </item>
-     <item row="0" column="2">
+     </column>
+     <column>
       <property name="text">
        <string>权限</string>
       </property>
-     </item>
+     </column>
     </widget>
    </widget>
    <widget class="QWidget" name="fixREC">

@@ -15,6 +15,7 @@ SuperAdmin::SuperAdmin(QWidget *parent) :
 SuperAdmin::~SuperAdmin()
 {
     delete ui;
+    delete query;
 }
 
 void SuperAdmin::on_sButton_clicked()
@@ -55,6 +56,7 @@ void SuperAdmin::on_fixSubmit_clicked()
                 );
     query->prepare("select COUNT(*) from userInfo where username = :username");
     query->bindValue(":username",userInfo.getUsername());
+    query->exec();
     query->next();
     int count = query->value("COUNT(*)").toInt();
     query->clear();
@@ -67,11 +69,45 @@ void SuperAdmin::on_fixSubmit_clicked()
             QMessageBox::information(this,"提示","成功");
             query->clear();
         }else{
-            QMessageBox::information(this,"提示","更新失败");
+            QMessageBox::information(this,"提示","失败");
             query->clear();
         }
     }else{
         QMessageBox::information(this,"提示","用户名不存在，请检查");
     }
+}
+
+
+void SuperAdmin::on_delSubmit_clicked()
+{
+    QString username = ui->delUsername->text();
+    query->prepare("delete from userinfo where username = :username");
+    query->bindValue(":username",username);
+    if(query->exec()){
+        QMessageBox::information(this,"提示","成功");
+    }else{
+        QMessageBox::information(this,"提示","用户名不存在，请检查");
+    }
+    query->clear();
+}
+
+
+void SuperAdmin::on_newSubmit_clicked()
+{
+    UserInfo userInfo = UserInfo(
+                ui->newUsername->text(),
+                ui->newPassword->text(),
+                ui->newRole->value()
+                );
+    query->prepare("insert into userinfo (username,password,role) values (:username,:password,:role)");
+    query->bindValue(":password",userInfo.getPassword());
+    query->bindValue(":role",userInfo.getRole());
+    query->bindValue(":username",userInfo.getUsername());
+    if(query->exec()){
+        QMessageBox::information(this,"提示","成功");
+    }else{
+        QMessageBox::information(this,"提示","用户名已存在，请检查");
+    }
+    query->clear();
 }
 
