@@ -6,16 +6,20 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    this->setWindowIcon(QIcon(":/icons/logo.ico"));
     database = QSqlDatabase::addDatabase("QSQLITE","login");
     database.setDatabaseName("data.db");
     database.open();
     query = new QSqlQuery(database);
     query->exec("create table userInfo(username unique,password,role)");
+    query->exec("insert into userInfo(username,password,role) values ('郑霄鹏','123','1')");
+    query->exec("insert into userInfo(username,password,role) values ('郑喆','123','2')");
     //query->exec("insert into userInfo(username,password,role) values ('郑霄鹏','123','1')");
 }
 
 MainWindow::~MainWindow()
 {
+    database.close();
     delete query;
     delete ui;
 }
@@ -27,7 +31,7 @@ void MainWindow::on_pushButton_clicked()
     qDebug()<<username<<password;
     if(this->username=="Admin"){
         if(this->password=="njupt+1s"){
-            QMessageBox::information(this,"提示","登陆成功");
+            QMessageBox::information(this,"提示","登录成功");
             database.close();
             SuperAdmin *superAdmin = new SuperAdmin();
             superAdmin->setWindowIcon(QIcon(":/icons/logo.ico"));
@@ -52,12 +56,13 @@ void MainWindow::on_pushButton_clicked()
             QString truePassword= query->value("password").toString();
             int role = query->value("role").toInt();
             if(truePassword==password){
-                QMessageBox::information(this,"提示","登陆成功");
+                QMessageBox::information(this,"提示","登录成功");
                 if(role==1){
                     Employee * employee = new Employee();
                     employee->setWindowIcon(QIcon(":/icons/logo.ico"));
                     employee->show();
                     this->close();
+                    this->~MainWindow();
                 }else if(role==2){
                     //todo
 
@@ -70,5 +75,11 @@ void MainWindow::on_pushButton_clicked()
             QMessageBox::information(this,"提示","用户名不存在");
         }
     }
+}
+
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    close();
 }
 

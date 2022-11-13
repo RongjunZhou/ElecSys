@@ -2,6 +2,10 @@
 #define EMPLOYEE_H
 
 #include <QMainWindow>
+#include <QSqlDatabase>
+#include <QMessageBox>
+#include <QSqlQuery>
+#include <QDebug>
 
 namespace Ui {
 class Employee;
@@ -30,8 +34,19 @@ private slots:
 
     void on_pushButton_save_released();
 
+    void on_pushButton_6_clicked();
+
 private:
     Ui::Employee *ui;
+    void *mainWindow;
+    QString area;
+    QString house;
+    QString date;
+    qreal high;
+    qreal low;
+    qreal charge;
+    QSqlDatabase database;
+    QSqlQuery *query;
 };
 
 #endif // EMPLOYEE_H
