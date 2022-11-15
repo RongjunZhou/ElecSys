@@ -2,6 +2,10 @@
 #define STAFF_H
 
 #include <QWidget>
+#include <QSqlDatabase>
+#include <QMessageBox>
+#include <QSqlQuery>
+#include <QDebug>
 
 namespace Ui {
 class Staff;
@@ -28,8 +32,12 @@ private slots:
 
     void on_pushButton_5_released();
 
+    void on_pushButton_7_released();
+
 private:
     Ui::Staff *ui;
+    QSqlDatabase database;
+    QSqlQuery *query;
 };
 
 #endif // STAFF_H
