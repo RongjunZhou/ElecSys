@@ -1,10 +1,10 @@
 #ifndef STAFF_H
 #define STAFF_H
 
-#include <QMainWindow>
+#include <QWidget>
 
 namespace Ui {
-class staff;
+class Staff;
 }
 
 class Staff : public QMainWindow
@@ -29,7 +29,7 @@ private slots:
     void on_pushButton_10_released();
 
 private:
-    Ui::staff *ui;
+    Ui::Staff *ui;
 };
 
 #endif // STAFF_H

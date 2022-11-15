@@ -15,6 +15,7 @@ MainWindow::MainWindow(QWidget *parent)
     query->exec("create table userInfo(username unique,password,role)");
     query->exec("insert into userInfo(username,password,role) values ('郑霄鹏','123','1')");
     query->exec("insert into userInfo(username,password,role) values ('郑喆','123','2')");
+    //query->exec("insert into userInfo(username,password,role) values ('郑霄鹏','123','1')");
 }
 
 MainWindow::~MainWindow()
@@ -69,7 +70,6 @@ void MainWindow::on_pushButton_clicked()
                     staff->show();
                     this->close();
                     this->~MainWindow();
-
                 }
             }
             else{

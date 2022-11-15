@@ -1,7 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0'?>
 <ui version="4.0">
- <class>staff</class>
- <widget class="QMainWindow" name="staff">
+ <author/>
+ <comment/>
+ <exportmacro/>
+ <class>Staff</class>
+ <widget class="QWidget" name="Staff">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -23,7 +26,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Form</string>
   </property>
   <property name="styleSheet">
    <string notr="true">QMainWindow
@@ -260,6 +263,6 @@ font: 26pt &quot;隶书&quot;;</string>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <pixmapfunction/>
  <connections/>
 </ui>
