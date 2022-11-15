@@ -29,9 +29,9 @@ set(PROJECT_SOURCES
         userinfo.cpp
         userinfo.h
         staticResource.qrc
-        Employee.cpp
-        Employee.h
-        Employee.ui
+        employee.cpp
+        employee.h
+        employee.ui
         staff.cpp
         staff.h
         staff.ui
