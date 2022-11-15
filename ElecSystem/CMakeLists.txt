@@ -37,8 +37,6 @@ set(PROJECT_SOURCES
         staff.ui
         meminfo.cpp
         meminfo.h
-
-
         ${TS_FILES}
 )
 

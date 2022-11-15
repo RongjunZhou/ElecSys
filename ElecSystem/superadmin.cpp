@@ -24,7 +24,7 @@ void SuperAdmin::on_sButton_clicked()
     QString username = ui->sLine->text();
     QList<UserInfo> userInfoList;
     query->prepare("select * from userInfo where username LIKE :username");
-    query->bindValue(":username",username);
+    query->bindValue(":username","%"+username+"%");
     query->exec();
     while(query->next()){
         userInfoList.append(
@@ -35,11 +35,12 @@ void SuperAdmin::on_sButton_clicked()
                         )
         );
     }
-    ui->sTable->insertRow(userInfoList.size());
     for(int i = 0;i < userInfoList.size();i++){
+        ui->sTable->insertRow(i);
         ui->sTable->setItem(i,0,new QTableWidgetItem((QString)userInfoList[i].getUsername()));
         ui->sTable->setItem(i,1,new QTableWidgetItem((QString)userInfoList[i].getPassword()));
-        ui->sTable->setItem(i,2,new QTableWidgetItem(userInfoList[i].getRole()));
+        ui->sTable->setItem(i,2,new QTableWidgetItem(QString::number(userInfoList[i].getRole())));
+        //qDebug()<<userInfoList[i].getRole();
     }
     ui->sTable->show();
 

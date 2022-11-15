@@ -1,14 +1,14 @@
 #include "staff.h"
 #include "ui_staff.h"
 
-staff::staff(QWidget *parent) :
-    QMainWindow(parent),
-    ui(new Ui::staff)
+Staff::Staff(QWidget *parent) :
+    QWidget(parent),
+    ui(new Ui::Staff)
 {
     ui->setupUi(this);
 }
 
-staff::~staff()
+Staff::~Staff()
 {
     delete ui;
 }

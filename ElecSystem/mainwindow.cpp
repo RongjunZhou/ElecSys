@@ -64,8 +64,11 @@ void MainWindow::on_pushButton_clicked()
                     this->close();
                     this->~MainWindow();
                 }else if(role==2){
-                    //todo
-
+                    Staff * staff = new Staff();
+                    staff->setWindowIcon(QIcon(":/icons/logo.ico"));
+                    staff->show();
+                    this->close();
+                    this->~MainWindow();
                 }
             }
             else{

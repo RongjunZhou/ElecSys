@@ -1,22 +1,22 @@
 #ifndef STAFF_H
 #define STAFF_H
 
-#include <QMainWindow>
+#include <QWidget>
 
 namespace Ui {
-class staff;
+class Staff;
 }
 
-class staff : public QMainWindow
+class Staff : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit staff(QWidget *parent = nullptr);
-    ~staff();
+    explicit Staff(QWidget *parent = nullptr);
+    ~Staff();
 
 private:
-    Ui::staff *ui;
+    Ui::Staff *ui;
 };
 
 #endif // STAFF_H

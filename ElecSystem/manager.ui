@@ -3,8 +3,8 @@
  <author/>
  <comment/>
  <exportmacro/>
- <class>Staff</class>
- <widget class="QWidget" name="Staff">
+ <class>Manager</class>
+ <widget class="QWidget" name="Manager">
   <property name="geometry">
    <rect>
     <x>0</x>
