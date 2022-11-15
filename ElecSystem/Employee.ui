@@ -322,23 +322,6 @@ font: 26pt &quot;隶书&quot;;</string>
          <string>返回主菜单</string>
         </property>
        </widget>
-       <widget class="QLabel" name="label_3">
-        <property name="geometry">
-         <rect>
-          <x>240</x>
-          <y>10</y>
-          <width>221</width>
-          <height>51</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: rgb(255, 255, 255);
-font: 26pt &quot;隶书&quot;;</string>
-        </property>
-        <property name="text">
-         <string>统计用户</string>
-        </property>
-       </widget>
       </widget>
      </widget>
     </item>
