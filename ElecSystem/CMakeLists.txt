@@ -32,11 +32,12 @@ set(PROJECT_SOURCES
         Employee.cpp
         Employee.h
         Employee.ui
+        meminfo.cpp
+        meminfo.h
         staff.cpp
         staff.h
         staff.ui
-        meminfo.cpp
-        meminfo.h
+
         ${TS_FILES}
 )
 
