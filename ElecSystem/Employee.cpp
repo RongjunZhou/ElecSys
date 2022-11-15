@@ -2,6 +2,8 @@
 #include "ui_Employee.h"
 #include "mainwindow.h"
 #include <QSqlError>
+#include "meminfo.h"
+
 
 Employee::Employee(QWidget *parent) :
     QMainWindow(parent),
@@ -66,12 +68,6 @@ void Employee::on_pushButton_save_released()
 {
     QList<MemInfo> list;
     int sizeNum=ui->tableWidget->rowCount();
-    QString area;
-    QString house;
-    QString date;
-    qreal high;
-    qreal low;
-    qreal charge;
     qDebug()<<sizeNum;
     for(int i=1;i<sizeNum;i++){
         area  = ui->tableWidget->item(i,0)->text();

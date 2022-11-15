@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
+#include "staff.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -63,7 +64,11 @@ void MainWindow::on_pushButton_clicked()
                     this->close();
                     this->~MainWindow();
                 }else if(role==2){
-                    //todo
+                    Staff * staff = new Staff();
+                    staff->setWindowIcon(QIcon(":/icons/logo.ico"));
+                    staff->show();
+                    this->close();
+                    this->~MainWindow();
 
                 }
             }

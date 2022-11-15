@@ -28,3 +28,8 @@ qreal MemInfo::getlow(){
 qreal MemInfo::getcharge(){
     return this->charge;
 }
+
+int MemInfo::getMemCut()
+{
+
+}
