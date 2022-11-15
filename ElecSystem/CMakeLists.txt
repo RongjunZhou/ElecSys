@@ -29,11 +29,15 @@ set(PROJECT_SOURCES
         userinfo.cpp
         userinfo.h
         staticResource.qrc
-        employee.cpp
-        employee.h
-        employee.ui
+        Employee.cpp
+        Employee.h
+        Employee.ui
         meminfo.cpp
         meminfo.h
+        staff.cpp
+        staff.h
+        staff.ui
+
         ${TS_FILES}
 )
 
