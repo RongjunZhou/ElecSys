@@ -1,7 +1,7 @@
 #ifndef STAFF_H
 #define STAFF_H
 
-#include <QWidget>
+#include <QMainWindow>
 
 namespace Ui {
 class Staff;

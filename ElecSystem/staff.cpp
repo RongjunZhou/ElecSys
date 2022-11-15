@@ -1,10 +1,10 @@
 #include "staff.h"
 #include "ui_staff.h"
-#include "mainwindow.h""
+#include "mainwindow.h"
 
 Staff::Staff(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::staff)
+    ui(new Ui::Staff)
 {
     ui->setupUi(this);
 }
