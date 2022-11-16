@@ -17,6 +17,7 @@ Staff::Staff(QWidget *parent) :
     query = new QSqlQuery(database);
     ui->tableWidget->horizontalHeader()->sectionResizeMode(QHeaderView::Stretch);
     ui->tableWidget_2->horizontalHeader()->sectionResizeMode(QHeaderView::Stretch);
+
 }
 
 Staff::~Staff()
@@ -119,5 +120,17 @@ void Staff::on_pushButton_7_released()
             ui->tableWidget->setItem(count,4,new QTableWidgetItem(query->value("charge").toString()));
         }
     }
+}
+
+
+void Staff::on_pushButton_8_released()
+{
+    //初始化表格
+    ui->tableWidget->setRowCount(0);
+    QString date = ui->dateEdit_2->text();
+    query->prepare("select * from gathar where date = :date");
+    query->bindValue(":date",date);
+    query->exec();
+    //QMap<QString,>
 }
 

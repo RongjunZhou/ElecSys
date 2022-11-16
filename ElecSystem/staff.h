@@ -34,6 +34,8 @@ private slots:
 
     void on_pushButton_7_released();
 
+    void on_pushButton_8_released();
+
 private:
     Ui::Staff *ui;
     QSqlDatabase database;
