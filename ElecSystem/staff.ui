@@ -49,7 +49,7 @@ QWidget demandpage
 }</string>
      </property>
      <property name="currentIndex">
-      <number>2</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="menupage">
       <widget class="QLabel" name="label">
@@ -433,7 +433,7 @@ color:rgb(0,0,0)</string>
              <enum>Qt::LeftToRight</enum>
             </property>
             <property name="text">
-             <string>户数</string>
+             <string>日均电量</string>
             </property>
            </widget>
           </item>
@@ -482,7 +482,7 @@ color:rgb(0,0,0)</string>
              </font>
             </property>
             <property name="text">
-             <string>中位用电量</string>
+             <string>总用电量</string>
             </property>
            </widget>
           </item>
@@ -498,7 +498,7 @@ color:rgb(0,0,0)</string>
              </font>
             </property>
             <property name="text">
-             <string>最高日用电量</string>
+             <string>日均电量</string>
             </property>
            </widget>
           </item>
@@ -551,7 +551,7 @@ color:rgb(0,0,0)</string>
              </font>
             </property>
             <property name="text">
-             <string>平均用电量</string>
+             <string>小区平均电量</string>
             </property>
            </widget>
           </item>
@@ -582,6 +582,11 @@ color:rgb(0,0,0)</string>
             <string>评分</string>
            </property>
           </column>
+          <column>
+           <property name="text">
+            <string>急需扩容</string>
+           </property>
+          </column>
          </widget>
         </item>
        </layout>
@@ -602,7 +607,7 @@ color:rgb(0,0,0)</string>
          <second>0</second>
          <year>2022</year>
          <month>10</month>
-         <day>31</day>
+         <day>30</day>
         </datetime>
        </property>
        <property name="currentSection">
