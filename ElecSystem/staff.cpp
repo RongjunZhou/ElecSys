@@ -1,6 +1,7 @@
 #include "staff.h"
 #include "ui_staff.h"
 #include "mainwindow.h"
+#include "analysetable.h"
 
 Staff::Staff(QWidget *parent) :
     QWidget(parent),
@@ -122,6 +123,24 @@ void Staff::on_pushButton_7_released()
     }
 }
 
+int compareAnalyseTableByScore(AnalyseTable &a,AnalyseTable &b)
+{
+    return a.getScore()>b.getScore();
+}
+
+int compareAnalyseTableByTotal(AnalyseTable &a,AnalyseTable &b)
+{
+     return a.getTotal()>b.getTotal();
+}
+
+int compareAnalyseTableByAverage(AnalyseTable &a,AnalyseTable &b)
+{
+    return a.getAverge()>b.getAverge();
+}
+int compareMax(MemInfo &a,MemInfo &b)
+{
+    return a.getcharge()>b.getcharge();
+}
 
 void Staff::on_pushButton_8_released()
 {
@@ -131,6 +150,96 @@ void Staff::on_pushButton_8_released()
     query->prepare("select * from gathar where date = :date");
     query->bindValue(":date",date);
     query->exec();
-    //QMap<QString,>
+    double homeAverage = 0;
+    int homeCount = 0;
+    QMap<QString,AnalyseTable> dataMap;
+    QMap<QString,MemInfo> maxMap;
+    while(query->next()){
+        QString area = query->value("area").toString();
+        if(!dataMap.contains(area)){
+            dataMap.insert(area,AnalyseTable());
+        }
+        AnalyseTable at = dataMap.value(area);
+        at.addData(query->value("high").toDouble()+query->value("low").toDouble());
+        at.setArea(query->value("area").toString());
+        dataMap.insert(area,at);
+        homeAverage+=(query->value("high").toDouble()+query->value("low").toDouble());
+        MemInfo miBuf = MemInfo();
+        miBuf.setInfoForStaff(
+            query->value("area").toString(),
+            query->value("house").toString(),
+            query->value("high").toDouble()+query->value("low").toDouble()
+                    );
+        maxMap.insert(
+                    query->value("house").toString(),
+                    miBuf
+                    );
+        homeCount++;
+    }
+    query->clear();
+    QList<MemInfo> memSort = maxMap.values();
+    std::sort(memSort.begin(),memSort.end(),compareMax);
+    int count = 0;
+    for(MemInfo o:memSort){
+        if(count<20){
+            QString HomeArea = o.getarea();
+            AnalyseTable atBuf = dataMap.value(HomeArea);
+            atBuf.addScore(20-count);
+            dataMap.insert(
+                        HomeArea,
+                        atBuf
+                        );
+
+            count++;
+        }else{
+            break;
+        }
+    }
+    if(count>0){
+        ui->label_18->setText(memSort[0].gethouse());
+        ui->lcdNumber_6->display(memSort[0].getcharge());
+        ui->lcdNumber_5->display(memSort[0].getcharge()/30);
+        ui->lcdNumber_2->display(homeAverage);
+        ui->lcdNumber->display(homeAverage/memSort.size());
+    }
+    count = 0;
+    QList<AnalyseTable> dataSort = dataMap.values();
+    std::sort(dataSort.begin(),dataSort.end(),compareAnalyseTableByTotal);
+    for(AnalyseTable o:dataSort){
+        if(count<20){
+            o.addScore(40-2*count);
+            dataSort.replace(count,o);
+        }else{
+            break;
+        }
+        count++;
+    }
+    count = 0;
+    std::sort(dataSort.begin(),dataSort.end(),compareAnalyseTableByAverage);
+    for(AnalyseTable o:dataSort){
+        if(count<20){
+            o.addScore(40-2*count);
+            dataSort.replace(count,o);
+        }else{
+            break;
+        }
+        count++;
+    }
+    std::sort(dataSort.begin(),dataSort.end(),compareAnalyseTableByScore);
+    if(count>0){
+        ui->label_16->setText(dataSort[0].getArea());
+        ui->lcdNumber_4->display(dataSort[0].getTotal()/30);
+        ui->lcdNumber_3->display(dataSort[0].getTotal());
+    }
+    for(AnalyseTable o:dataSort){
+        int tableCount = ui->tableWidget_2->rowCount();
+        ui->tableWidget_2->insertRow(tableCount);
+        ui->tableWidget_2->setItem(tableCount,0,new QTableWidgetItem(o.getArea()));
+        ui->tableWidget_2->setItem(tableCount,1,new QTableWidgetItem(QString::number(o.getTotal())));
+        ui->tableWidget_2->setItem(tableCount,2,new QTableWidgetItem(QString::number(o.getAverge())));
+        ui->tableWidget_2->setItem(tableCount,3,new QTableWidgetItem(QString::number(o.getScore())));
+        ui->tableWidget_2->setItem(tableCount,4,new QTableWidgetItem(QString::number(o.getAverge()>homeAverage/homeCount)));
+        qDebug()<<o.getArea()<<o.getTotal()<<o.getAverge()<<o.getScore();
+    }
 }
 

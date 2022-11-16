@@ -8,19 +8,19 @@ class AnalyseTable
 {
 public:
     AnalyseTable();
-    void addData(double data);
-    void setScore(int);
-    void setUrgentNeed(bool);
+    void setArea(QString);
+    void addData(double);
+    void addScore(int);
     double getTotal();
     double getAverge();
     int getScore();
-    bool getUrgentNeed();
+    QString getArea();
 private:
+    QString area;
     double total;
     int count;
     double average;
     int score;
-    bool urgentNeed;
 };
 
 #endif // ANALYSETABLE_H

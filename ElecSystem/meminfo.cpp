@@ -31,10 +31,9 @@ qreal MemInfo::getlow(){
 qreal MemInfo::getcharge(){
     return this->charge;
 }
-void MemInfo::setInfoForStaff(QString area,QString house,qreal charge,qreal high)
+void MemInfo::setInfoForStaff(QString area,QString house,qreal charge)
 {
     this->area = area;
     this->house = house;
     this->charge = charge;
-    this->high = high;
 }

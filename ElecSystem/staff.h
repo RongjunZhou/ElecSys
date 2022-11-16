@@ -6,6 +6,8 @@
 #include <QMessageBox>
 #include <QSqlQuery>
 #include <QDebug>
+#include <QCollator>
+
 
 namespace Ui {
 class Staff;

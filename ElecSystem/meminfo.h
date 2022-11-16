@@ -15,7 +15,7 @@ public:
     qreal gethigh();
     qreal getlow();
     qreal getcharge();
-    void setInfoForStaff(QString,QString,qreal,qreal);
+    void setInfoForStaff(QString,QString,qreal);
 
 private:
     QString area;
