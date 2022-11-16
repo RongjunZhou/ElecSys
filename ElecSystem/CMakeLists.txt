@@ -37,7 +37,8 @@ set(PROJECT_SOURCES
         staff.cpp
         staff.h
         staff.ui
-
+        analysetable.cpp
+        analysetable.h
         ${TS_FILES}
 )
 

@@ -9,7 +9,10 @@ MemInfo::MemInfo(QString area,QString house,QString date,qreal high,qreal low,qr
     this->low = low;
     this->charge = charge;
 }
+MemInfo::MemInfo()
+{
 
+}
 QString MemInfo::getarea(){
     return this->area;
 }
@@ -28,8 +31,9 @@ qreal MemInfo::getlow(){
 qreal MemInfo::getcharge(){
     return this->charge;
 }
-
-int MemInfo::getMemCut()
+void MemInfo::setInfoForStaff(QString area,QString house,qreal charge)
 {
-
+    this->area = area;
+    this->house = house;
+    this->charge = charge;
 }
