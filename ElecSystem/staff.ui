@@ -25,9 +25,29 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget demandpage
+{	
+	border-image: url(:/image/eg4.png);
+}
+QWidget menupage
+{	
+	border-image: url(:/image/eg4.png);
+}
+QWidget demandpage
+{	
+	border-image: url(:/image/eg4.png);
+}</string>
+  </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="1">
     <widget class="QStackedWidget" name="stackedWidget">
+     <property name="styleSheet">
+      <string notr="true">QWidgit
+{
+	border-image: url(:/image/eg4.png);
+}</string>
+     </property>
      <property name="currentIndex">
       <number>2</number>
      </property>
@@ -43,7 +63,7 @@
        </property>
        <property name="styleSheet">
         <string notr="true">font: 28pt &quot;华文行楷&quot;;
-color:rgb(255, 255, 255)</string>
+color:rgb(0,0,0)</string>
        </property>
        <property name="text">
         <string>电力统计管理系统</string>
@@ -53,7 +73,7 @@ color:rgb(255, 255, 255)</string>
        <property name="geometry">
         <rect>
          <x>260</x>
-         <y>150</y>
+         <y>180</y>
          <width>131</width>
          <height>41</height>
         </rect>
@@ -74,7 +94,7 @@ color:rgb(255, 255, 255)</string>
        <property name="geometry">
         <rect>
          <x>260</x>
-         <y>210</y>
+         <y>240</y>
          <width>131</width>
          <height>41</height>
         </rect>
@@ -95,7 +115,7 @@ color:rgb(255, 255, 255)</string>
        <property name="geometry">
         <rect>
          <x>260</x>
-         <y>270</y>
+         <y>300</y>
          <width>131</width>
          <height>41</height>
         </rect>
@@ -148,7 +168,7 @@ border-image: url(:/image/pic.png);</string>
         <item row="0" column="1">
          <widget class="QLabel" name="label_5">
           <property name="styleSheet">
-           <string notr="true">color: rgb(255, 255, 255);
+           <string notr="true">color: rgb(0,0,0);
 font: 10pt &quot;微软雅黑&quot;;</string>
           </property>
           <property name="text">
@@ -181,7 +201,7 @@ font: 10pt &quot;微软雅黑&quot;;</string>
        </property>
        <property name="styleSheet">
         <string notr="true">font: 28pt &quot;华文行楷&quot;;
-color:rgb(255, 255, 255)</string>
+color:rgb(0, 0, 0)</string>
        </property>
        <property name="text">
         <string>查看报表</string>
@@ -353,7 +373,7 @@ color:rgb(255, 255, 255)</string>
        </property>
        <property name="styleSheet">
         <string notr="true">font: 28pt &quot;华文行楷&quot;;
-color:rgb(255, 255, 255)</string>
+color:rgb(0,0,0)</string>
        </property>
        <property name="text">
         <string>扩容建议</string>
@@ -375,17 +395,20 @@ color:rgb(255, 255, 255)</string>
         <string>返回主菜单</string>
        </property>
       </widget>
-      <widget class="QWidget" name="gridLayoutWidget_2">
+      <widget class="QWidget" name="gridWidget_2" native="true">
        <property name="geometry">
         <rect>
          <x>30</x>
-         <y>60</y>
+         <y>70</y>
          <width>631</width>
-         <height>161</height>
+         <height>341</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
        <layout class="QGridLayout" name="gridLayout_4">
-        <item row="1" column="1" rowspan="2">
+        <item row="0" column="1" rowspan="2">
          <layout class="QGridLayout" name="gridLayout_10">
           <item row="0" column="0">
            <widget class="QLabel" name="label_13">
@@ -446,23 +469,7 @@ color:rgb(255, 255, 255)</string>
           </item>
          </layout>
         </item>
-        <item row="0" column="0">
-         <layout class="QVBoxLayout" name="verticalLayout">
-          <item>
-           <widget class="QLabel" name="label_10">
-            <property name="font">
-             <font>
-              <pointsize>20</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string>数据分析模块</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item row="2" column="0">
+        <item row="1" column="0">
          <layout class="QGridLayout" name="gridLayout_8">
           <item row="0" column="1">
            <widget class="QLCDNumber" name="lcdNumber_2"/>
@@ -481,26 +488,7 @@ color:rgb(255, 255, 255)</string>
           </item>
          </layout>
         </item>
-        <item row="1" column="0">
-         <layout class="QGridLayout" name="gridLayout_9">
-          <item row="0" column="0">
-           <widget class="QLabel" name="label_11">
-            <property name="font">
-             <font>
-              <pointsize>16</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string>平均用电量</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1">
-           <widget class="QLCDNumber" name="lcdNumber"/>
-          </item>
-         </layout>
-        </item>
-        <item row="1" column="2" rowspan="2">
+        <item row="0" column="2" rowspan="2">
          <layout class="QGridLayout" name="gridLayout_11">
           <item row="1" column="0">
            <widget class="QLabel" name="label_19">
@@ -553,28 +541,30 @@ color:rgb(255, 255, 255)</string>
           </item>
          </layout>
         </item>
-       </layout>
-      </widget>
-      <widget class="QWidget" name="gridLayoutWidget_7">
-       <property name="geometry">
-        <rect>
-         <x>30</x>
-         <y>230</y>
-         <width>631</width>
-         <height>201</height>
-        </rect>
-       </property>
-       <layout class="QGridLayout" name="gridLayout_12">
         <item row="0" column="0">
+         <layout class="QGridLayout" name="gridLayout_9">
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_11">
+            <property name="font">
+             <font>
+              <pointsize>16</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>平均用电量</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLCDNumber" name="lcdNumber"/>
+          </item>
+         </layout>
+        </item>
+        <item row="2" column="0" colspan="3">
          <widget class="QTableWidget" name="tableWidget_2">
           <column>
            <property name="text">
-            <string>小区名</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>新建列</string>
+            <string>小区名称</string>
            </property>
           </column>
           <column>
@@ -584,12 +574,56 @@ color:rgb(255, 255, 255)</string>
           </column>
           <column>
            <property name="text">
-            <string>建议分</string>
+            <string>户均用电量</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>评分</string>
            </property>
           </column>
          </widget>
         </item>
        </layout>
+      </widget>
+      <widget class="QDateEdit" name="dateEdit_2">
+       <property name="geometry">
+        <rect>
+         <x>510</x>
+         <y>40</y>
+         <width>71</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="dateTime">
+        <datetime>
+         <hour>0</hour>
+         <minute>0</minute>
+         <second>0</second>
+         <year>2022</year>
+         <month>10</month>
+         <day>31</day>
+        </datetime>
+       </property>
+       <property name="currentSection">
+        <enum>QDateTimeEdit::YearSection</enum>
+       </property>
+       <property name="displayFormat">
+        <string>yyyy/M</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_8">
+       <property name="geometry">
+        <rect>
+         <x>590</x>
+         <y>40</y>
+         <width>71</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>开始分析</string>
+       </property>
       </widget>
      </widget>
     </widget>
