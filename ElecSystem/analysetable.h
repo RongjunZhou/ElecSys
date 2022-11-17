@@ -19,7 +19,6 @@ private:
     QString area;
     double total;
     int count;
-    double average;
     int score;
 };
 
