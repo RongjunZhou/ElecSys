@@ -121,3 +121,194 @@ void Employee::on_pushButton_6_clicked()
     delete this;
 }
 
+void Employee::on_pushButton_save_2_released()
+{
+    ui->tableWidget->setRowCount(0);
+    query->exec("select * from gathar");
+    while(query->next()){
+        int count = ui->tableWidget->rowCount();
+        ui->tableWidget->insertRow(count);
+        ui->tableWidget->setItem(count,0,new QTableWidgetItem(query->value("area").toString()));
+        ui->tableWidget->setItem(count,1,new QTableWidgetItem(query->value("house").toString()));
+        ui->tableWidget->setItem(count,2,new QTableWidgetItem(query->value("date").toString()));
+        ui->tableWidget->setItem(count,3,new QTableWidgetItem(query->value("high").toString()));
+        ui->tableWidget->setItem(count,4,new QTableWidgetItem(query->value("low").toString()));
+        ui->tableWidget->setItem(count,5,new QTableWidgetItem(query->value("charge").toString()));
+    }
+}
+
+
+
+
+void Employee::on_pushButton_7_released()
+{
+
+    ui->tableWidget_2->setRowCount(0);
+    int month_all;
+    QString area = ui->lineEdit->text();
+    QString house = ui->lineEdit_2->text();
+    QString date = ui->lineEdit_3->text();
+
+    //有小区，有家庭，有日期
+    if(!(date.isEmpty()) && !(area.isEmpty()) && !(house.isEmpty())){
+        query->prepare("select * from gathar where date = :date and area = :area and house = :house");
+        query->bindValue(":date",date);
+        query->bindValue(":area",area);
+        query->bindValue(":house",house);
+        query->exec();
+        ui->tableWidget_2->clear();
+        ui->tableWidget_2->setColumnCount(5);
+        ui->tableWidget_2->setHorizontalHeaderLabels(QStringList() << "老小区" << "家庭户名" << "用电年月" <<"月总用电量" << "电费");
+        while(query->next()){
+            month_all = query->value("high").toDouble()+query->value("low").toDouble();
+            int count = ui->tableWidget_2->rowCount();
+            ui->tableWidget_2->insertRow(count);
+            ui->tableWidget_2->setItem(count,0,new QTableWidgetItem(query->value("area").toString()));
+            ui->tableWidget_2->setItem(count,1,new QTableWidgetItem(query->value("house").toString()));
+            ui->tableWidget_2->setItem(count,2,new QTableWidgetItem(query->value("date").toString()));
+            ui->tableWidget_2->setItem(count,3,new QTableWidgetItem(QString::number(month_all)));
+            ui->tableWidget_2->setItem(count,4,new QTableWidgetItem(query->value("charge").toString()));
+        }
+    }
+
+    //有小区，无家庭，有日期
+    else if(!(date.isEmpty()) && !(area.isEmpty()) && house.isEmpty()){
+        query->prepare("select * from gathar where date = :date and area = :area");
+        query->bindValue(":date",date);
+        query->bindValue(":area",area);
+        query->exec();
+        ui->tableWidget_2->clear();
+        ui->tableWidget_2->setColumnCount(4);
+        ui->tableWidget_2->setHorizontalHeaderLabels(QStringList() << "老小区" << "家庭户名" <<"月总用电量" << "电费");
+        while(query->next()){
+            month_all = query->value("high").toDouble()+query->value("low").toDouble();
+            int count = ui->tableWidget_2->rowCount();
+            ui->tableWidget_2->insertRow(count);
+            ui->tableWidget_2->setItem(count,0,new QTableWidgetItem(query->value("area").toString()));
+            ui->tableWidget_2->setItem(count,1,new QTableWidgetItem(query->value("house").toString()));
+            ui->tableWidget_2->setItem(count,2,new QTableWidgetItem(QString::number(month_all)));
+            ui->tableWidget_2->setItem(count,3,new QTableWidgetItem(query->value("charge").toString()));
+        }
+    }
+
+    //有小区，无家庭，无日期
+    else if(!(area.isEmpty())&& house.isEmpty() && date.isEmpty()){
+        query->prepare("select * from gathar where area = :area");
+        query->bindValue(":area",area);
+        query->exec();
+        ui->tableWidget_2->clear();
+        ui->tableWidget_2->setColumnCount(5);
+        ui->tableWidget_2->setHorizontalHeaderLabels(QStringList() << "老小区" << "家庭户名" << "用电年月" <<"月总用电量" << "电费");
+        while(query->next()){
+            month_all = query->value("high").toDouble()+query->value("low").toDouble();
+            int count = ui->tableWidget_2->rowCount();
+            ui->tableWidget_2->insertRow(count);
+            ui->tableWidget_2->setItem(count,0,new QTableWidgetItem(query->value("area").toString()));
+            ui->tableWidget_2->setItem(count,1,new QTableWidgetItem(query->value("house").toString()));
+            ui->tableWidget_2->setItem(count,2,new QTableWidgetItem(query->value("date").toString()));
+            ui->tableWidget_2->setItem(count,3,new QTableWidgetItem(QString::number(month_all)));
+            ui->tableWidget_2->setItem(count,4,new QTableWidgetItem(query->value("charge").toString()));
+        }
+    }
+
+    //有小区，有家庭，无日期
+    else if(!(area.isEmpty()) && !(house.isEmpty()) && date.isEmpty()){
+        query->prepare("select * from gathar where area = :area and house = :house");
+        query->bindValue(":area",area);
+        query->bindValue(":house",house);
+        query->exec();
+        ui->tableWidget_2->clear();
+        ui->tableWidget_2->setColumnCount(5);
+        ui->tableWidget_2->setHorizontalHeaderLabels(QStringList() << "老小区" << "家庭户名"<< "用电年月" <<"月总用电量" << "电费");
+        while(query->next()){
+            int count = ui->tableWidget_2->rowCount();
+            month_all = query->value("high").toDouble()+query->value("low").toDouble();
+            ui->tableWidget_2->insertRow(count);
+            ui->tableWidget_2->setItem(count,0,new QTableWidgetItem(query->value("area").toString()));
+            ui->tableWidget_2->setItem(count,1,new QTableWidgetItem(query->value("house").toString()));
+            ui->tableWidget_2->setItem(count,2,new QTableWidgetItem(query->value("date").toString()));
+            ui->tableWidget_2->setItem(count,3,new QTableWidgetItem(QString::number(month_all)));
+            ui->tableWidget_2->setItem(count,4,new QTableWidgetItem(query->value("charge").toString()));
+        }
+    }
+
+    //无小区，无家庭，无日期
+    else if(area.isEmpty() && house.isEmpty() && date.isEmpty()){
+        query->prepare("select * from gathar");
+        query->exec();
+        ui->tableWidget_2->clear();
+        ui->tableWidget_2->setColumnCount(5);
+        ui->tableWidget_2->setHorizontalHeaderLabels(QStringList() << "老小区" << "家庭户名" << "用电年月" <<"月总用电量" << "电费");
+        while(query->next()){
+            int count = ui->tableWidget_2->rowCount();
+            month_all = query->value("high").toDouble()+query->value("low").toDouble();
+            ui->tableWidget_2->insertRow(count);
+            ui->tableWidget_2->setItem(count,0,new QTableWidgetItem(query->value("area").toString()));
+            ui->tableWidget_2->setItem(count,1,new QTableWidgetItem(query->value("house").toString()));
+            ui->tableWidget_2->setItem(count,2,new QTableWidgetItem(query->value("date").toString()));
+            ui->tableWidget_2->setItem(count,3,new QTableWidgetItem(QString::number(month_all)));
+            ui->tableWidget_2->setItem(count,4,new QTableWidgetItem(query->value("charge").toString()));
+        }
+    }
+}
+
+
+//按家庭统计
+void Employee::on_pushButton_8_released()
+{
+    ui->tableWidget_2->setRowCount(0);
+    int month_all = 0;
+    double fee_all = 0;
+
+    QMultiMap<QString, double> power, fee;
+    QList<double> powerlist ;
+    QList<double> feelist ;
+    QList<QString> infolist ;
+
+    query->prepare("select * from gathar");
+    query->exec();
+    ui->tableWidget_2->clear();
+    ui->tableWidget_2->setColumnCount(3);
+    ui->tableWidget_2->setHorizontalHeaderLabels(QStringList() << "家庭相关信息" <<"年总用电量" << "年总电费");
+
+    while(query->next()){
+        month_all = query->value("high").toDouble()+query->value("low").toDouble();
+        QString newarea = query->value("area").toString();
+        QString newhouse = query->value("house").toString();
+        QString newdate = query->value("date").toString();
+        QString newyear = newdate.mid(0,4);
+        QString newaddress = newarea + "-" + newhouse + "-" + newyear;
+        if(bool isok = power.contains(newaddress)){
+            month_all += power.value(newaddress);
+            power.insert(newaddress, month_all);
+            fee_all += fee.value(newaddress);
+            fee.insert(newaddress, fee_all);
+        }
+        else{
+            power.insert(newaddress, month_all);
+            powerlist.append(month_all);
+            fee.insert(newaddress, fee_all);
+            feelist.append(fee_all);
+            infolist.append(newaddress);
+        }
+    }
+
+    qDebug() << infolist[0];
+    qDebug() << powerlist[0];
+    qDebug() << feelist[0];
+
+    for(int i=0;i<infolist.size();i++){
+        int count = ui->tableWidget_2->rowCount();
+        ui->tableWidget_2->insertRow(count+1);
+        ui->tableWidget_2->setItem(count,0,new QTableWidgetItem(infolist[i]));
+        ui->tableWidget_2->setItem(count,1,new QTableWidgetItem(powerlist[i]));
+        ui->tableWidget_2->setItem(count,2,new QTableWidgetItem(feelist[i]));
+    };
+
+}
+
+//按小区统计
+void Employee::on_pushButton_9_released()
+{
+
+}

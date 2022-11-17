@@ -36,6 +36,14 @@ private slots:
 
     void on_pushButton_6_clicked();
 
+    void on_pushButton_save_2_released();
+
+    void on_pushButton_7_released();
+
+    void on_pushButton_8_released();
+
+    void on_pushButton_9_released();
+
 private:
     Ui::Employee *ui;
     void *mainWindow;

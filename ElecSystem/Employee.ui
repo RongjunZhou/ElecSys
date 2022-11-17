@@ -211,11 +211,6 @@ font: 26pt &quot;隶书&quot;;</string>
           <height>321</height>
          </rect>
         </property>
-        <row>
-         <property name="text">
-          <string>eg:</string>
-         </property>
-        </row>
         <column>
          <property name="text">
           <string>老小区名称</string>
@@ -246,31 +241,6 @@ font: 26pt &quot;隶书&quot;;</string>
           <string>每月电费</string>
          </property>
         </column>
-        <item row="0" column="0">
-         <property name="text">
-          <string>江湾城</string>
-         </property>
-        </item>
-        <item row="0" column="1">
-         <property name="text">
-          <string>1栋101</string>
-         </property>
-        </item>
-        <item row="0" column="2">
-         <property name="text">
-          <string>2022/11</string>
-         </property>
-        </item>
-        <item row="0" column="3">
-         <property name="text">
-          <string>100</string>
-         </property>
-        </item>
-        <item row="0" column="4">
-         <property name="text">
-          <string>100</string>
-         </property>
-        </item>
        </widget>
        <widget class="QPushButton" name="pushButton_add">
         <property name="geometry">
@@ -304,6 +274,22 @@ font: 26pt &quot;隶书&quot;;</string>
          <string>保存信息</string>
         </property>
        </widget>
+       <widget class="QPushButton" name="pushButton_save_2">
+        <property name="geometry">
+         <rect>
+          <x>550</x>
+          <y>20</y>
+          <width>101</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: 10pt &quot;微软雅黑&quot;;</string>
+        </property>
+        <property name="text">
+         <string>数据导入</string>
+        </property>
+       </widget>
       </widget>
       <widget class="QWidget" name="statpage">
        <widget class="QPushButton" name="pushButton_5">
@@ -320,6 +306,158 @@ font: 26pt &quot;隶书&quot;;</string>
         </property>
         <property name="text">
          <string>返回主菜单</string>
+        </property>
+       </widget>
+       <widget class="QTableWidget" name="tableWidget_2">
+        <property name="geometry">
+         <rect>
+          <x>35</x>
+          <y>101</y>
+          <width>511</width>
+          <height>281</height>
+         </rect>
+        </property>
+        <column>
+         <property name="text">
+          <string>老小区名称</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>家庭户名</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>用电年月</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>月总用电</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>月总电费</string>
+         </property>
+        </column>
+       </widget>
+       <widget class="QLabel" name="label_3">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>70</y>
+          <width>41</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>老小区</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>70</y>
+          <width>91</width>
+          <height>23</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_6">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>70</y>
+          <width>51</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>家庭户名</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit_2">
+        <property name="geometry">
+         <rect>
+          <x>240</x>
+          <y>70</y>
+          <width>91</width>
+          <height>23</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_7">
+        <property name="geometry">
+         <rect>
+          <x>360</x>
+          <y>70</y>
+          <width>51</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>用电年月</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit_3">
+        <property name="geometry">
+         <rect>
+          <x>410</x>
+          <y>70</y>
+          <width>91</width>
+          <height>23</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_7">
+        <property name="geometry">
+         <rect>
+          <x>560</x>
+          <y>40</y>
+          <width>101</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: 10pt &quot;微软雅黑&quot;;</string>
+        </property>
+        <property name="text">
+         <string>导入数据</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_8">
+        <property name="geometry">
+         <rect>
+          <x>560</x>
+          <y>90</y>
+          <width>101</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: 10pt &quot;微软雅黑&quot;;</string>
+        </property>
+        <property name="text">
+         <string>按家庭统计</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_9">
+        <property name="geometry">
+         <rect>
+          <x>560</x>
+          <y>140</y>
+          <width>101</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: 10pt &quot;微软雅黑&quot;;</string>
+        </property>
+        <property name="text">
+         <string>按小区统计</string>
         </property>
        </widget>
       </widget>
