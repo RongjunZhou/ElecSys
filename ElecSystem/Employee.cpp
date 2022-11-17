@@ -2,8 +2,6 @@
 #include "ui_Employee.h"
 #include "mainwindow.h"
 #include <QSqlError>
-#include "meminfo.h"
-
 
 Employee::Employee(QWidget *parent) :
     QMainWindow(parent),
@@ -69,7 +67,7 @@ void Employee::on_pushButton_save_released()
     QList<MemInfo> list;
     int sizeNum=ui->tableWidget->rowCount();
     qDebug()<<sizeNum;
-    for(int i=1;i<sizeNum;i++){
+    for(int i=0;i<sizeNum;i++){
         area  = ui->tableWidget->item(i,0)->text();
         house = ui->tableWidget->item(i,1)->text();
         date = ui->tableWidget->item(i,2)->text();
@@ -87,6 +85,7 @@ void Employee::on_pushButton_save_released()
         query->exec();
         query->next();
         int count = query->value("COUNT(*)").toInt();
+        qDebug()<<count;
         query->clear();
         if(count>0){
             query->prepare("update gathar set high =:high, low=:low, charge=:charge where area=:area and house=:house and date=:date");
@@ -96,6 +95,7 @@ void Employee::on_pushButton_save_released()
             query->bindValue(":area", o.getarea());
             query->bindValue(":house", o.gethouse());
             query->bindValue(":date", o.getdate());
+            query->exec();
         }else{
           query->prepare("insert into gathar (area,house,date,high,low,charge) "
                          "values (:area,:house,:date,:high,:low,:charge)");
@@ -259,8 +259,9 @@ void Employee::on_pushButton_8_released()
     ui->tableWidget_2->setRowCount(0);
     int month_all = 0;
     double fee_all = 0;
+    int check = 0;
 
-    QMultiMap<QString, double> power, fee;
+    QMap<QString, double> power, fee;
     QList<double> powerlist ;
     QList<double> feelist ;
     QList<QString> infolist ;
@@ -273,6 +274,7 @@ void Employee::on_pushButton_8_released()
 
     while(query->next()){
         month_all = query->value("high").toDouble()+query->value("low").toDouble();
+        fee_all = query->value("charge").toDouble();
         QString newarea = query->value("area").toString();
         QString newhouse = query->value("house").toString();
         QString newdate = query->value("date").toString();
@@ -281,6 +283,7 @@ void Employee::on_pushButton_8_released()
         if(bool isok = power.contains(newaddress)){
             month_all += power.value(newaddress);
             power.insert(newaddress, month_all);
+
             fee_all += fee.value(newaddress);
             fee.insert(newaddress, fee_all);
         }
@@ -290,25 +293,135 @@ void Employee::on_pushButton_8_released()
             fee.insert(newaddress, fee_all);
             feelist.append(fee_all);
             infolist.append(newaddress);
+            check += 1;
         }
     }
-
-    qDebug() << infolist[0];
-    qDebug() << powerlist[0];
-    qDebug() << feelist[0];
+    powerlist = power.values();
+    feelist = fee.values();
+    query->clear();
+//    qDebug() << infolist[0];
+//    qDebug() << powerlist[0];
+//    qDebug() << feelist[0];
+//    qDebug() << infolist[1];
+//    qDebug() << powerlist[1];
+//    qDebug() << feelist[1];
+//    qDebug() << infolist[2];
+//    qDebug() << powerlist[2];
+//    qDebug() << feelist[2];
+    ui->tableWidget_2->setItem(0,0,new QTableWidgetItem(infolist[0]));
 
     for(int i=0;i<infolist.size();i++){
-        int count = ui->tableWidget_2->rowCount();
-        ui->tableWidget_2->insertRow(count+1);
-        ui->tableWidget_2->setItem(count,0,new QTableWidgetItem(infolist[i]));
-        ui->tableWidget_2->setItem(count,1,new QTableWidgetItem(powerlist[i]));
-        ui->tableWidget_2->setItem(count,2,new QTableWidgetItem(feelist[i]));
-    };
-
+        ui->tableWidget_2->insertRow(i);
+        ui->tableWidget_2->setItem(i,0,new QTableWidgetItem(infolist[i]));
+        ui->tableWidget_2->setItem(i,1,new QTableWidgetItem(QString::number(powerlist[i])));
+        ui->tableWidget_2->setItem(i,2,new QTableWidgetItem(QString::number(feelist[i])));
+    }
 }
+
 
 //按小区统计
 void Employee::on_pushButton_9_released()
 {
+    ui->tableWidget_2->setRowCount(0);
+    int month_all = 0;
+    double fee_all = 0;
+    int check = 0;
 
+    QMap<QString, double> power, fee;
+    QList<double> powerlist ;
+    QList<double> feelist ;
+    QList<QString> infolist ;
+
+    query->prepare("select * from gathar");
+    query->exec();
+    ui->tableWidget_2->clear();
+    ui->tableWidget_2->setColumnCount(3);
+    ui->tableWidget_2->setHorizontalHeaderLabels(QStringList() << "家庭相关信息" <<"年总用电量" << "年总电费");
+
+    while(query->next()){
+        month_all = query->value("high").toDouble()+query->value("low").toDouble();
+        fee_all = query->value("charge").toDouble();
+        QString newarea = query->value("area").toString();
+        QString newhouse = query->value("house").toString();
+        QString newdate = query->value("date").toString();
+        QString newyear = newdate.mid(0,4);
+        QString newaddress = newarea + "-" + newhouse + "-" + newyear;
+        if(bool isok = power.contains(newaddress)){
+            month_all += power.value(newaddress);
+            power.insert(newaddress, month_all);
+
+            fee_all += fee.value(newaddress);
+            fee.insert(newaddress, fee_all);
+        }
+        else{
+            power.insert(newaddress, month_all);
+            powerlist.append(month_all);
+            fee.insert(newaddress, fee_all);
+            feelist.append(fee_all);
+            infolist.append(newaddress);
+            check += 1;
+        }
+    }
+    powerlist = power.values();
+    feelist = fee.values();
+    query->clear();
+//    qDebug() << infolist[0];
+//    qDebug() << powerlist[0];
+//    qDebug() << feelist[0];
+//    qDebug() << infolist[1];
+//    qDebug() << powerlist[1];
+//    qDebug() << feelist[1];
+//    qDebug() << infolist[2];
+//    qDebug() << powerlist[2];
+//    qDebug() << feelist[2];
+    ui->tableWidget_2->setItem(0,0,new QTableWidgetItem(infolist[0]));
+
+    for(int i=0;i<infolist.size();i++){
+        ui->tableWidget_2->insertRow(i);
+        ui->tableWidget_2->setItem(i,0,new QTableWidgetItem(infolist[i]));
+        ui->tableWidget_2->setItem(i,1,new QTableWidgetItem(QString::number(powerlist[i])));
+        ui->tableWidget_2->setItem(i,2,new QTableWidgetItem(QString::number(feelist[i])));
+    }
 }
+
+int compareMemInfoByhigh(MemInfo &a,MemInfo &b){
+    return a.gethigh()>b.gethigh();
+}
+
+
+//排序
+void Employee::on_pushButton_19_released()
+{
+    QString areaName;
+    QList<MemInfo> list;
+    int sizeNum=ui->tableWidget_2->rowCount();
+    qDebug()<<sizeNum;
+    for(int i=0;i<sizeNum;i++){
+        areaName  = ui->tableWidget_2->item(i,0)->text();
+        house = ui->tableWidget_2->item(i,1)->text();
+        date = ui->tableWidget_2->item(i,2)->text();
+        high = ui->tableWidget_2->item(i,3)->text().toDouble();
+        low = ui->tableWidget_2->item(i,4)->text().toDouble();
+        qDebug()<< areaName;
+
+        high = high + low;
+        charge = 0.5*high + 0.8*low;
+        ui->tableWidget_2->setItem(i,5,new QTableWidgetItem(charge));
+        list.append(MemInfo(areaName,house,date,high,low,charge));
+    }
+    std::sort(list.begin(),list.end(),compareMemInfoByhigh);
+    ui->tableWidget_2->clear();
+    ui->tableWidget_2->setRowCount(0);
+    ui->tableWidget_2->setColumnCount(5);
+    ui->tableWidget_2->setHorizontalHeaderLabels(QStringList() << "老小区" << "家庭户名" << "用电年月" <<"月总用电量" << "电费");
+    for(MemInfo o:list){
+        int i = ui->tableWidget_2->rowCount();
+        ui->tableWidget_2->insertRow(i);
+        ui->tableWidget_2->setItem(i,0,new QTableWidgetItem(o.getarea()));
+        ui->tableWidget_2->setItem(i,1,new QTableWidgetItem(o.gethouse()));
+        ui->tableWidget_2->setItem(i,2,new QTableWidgetItem(o.getdate()));
+        ui->tableWidget_2->setItem(i,3,new QTableWidgetItem(QString::number(o.gethigh())));
+        ui->tableWidget_2->setItem(i,4,new QTableWidgetItem(QString::number(o.getcharge())));
+    }
+}
+

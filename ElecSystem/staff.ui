@@ -49,7 +49,7 @@ QWidget demandpage
 }</string>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="menupage">
       <widget class="QLabel" name="label">
@@ -607,7 +607,7 @@ color:rgb(0,0,0)</string>
          <second>0</second>
          <year>2022</year>
          <month>10</month>
-         <day>29</day>
+         <day>27</day>
         </datetime>
        </property>
        <property name="currentSection">
