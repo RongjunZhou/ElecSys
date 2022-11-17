@@ -85,7 +85,6 @@ void Employee::on_pushButton_save_released()
         query->exec();
         query->next();
         int count = query->value("COUNT(*)").toInt();
-        qDebug()<<count;
         query->clear();
         if(count>0){
             query->prepare("update gathar set high =:high, low=:low, charge=:charge where area=:area and house=:house and date=:date");
