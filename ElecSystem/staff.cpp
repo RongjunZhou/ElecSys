@@ -18,6 +18,7 @@ Staff::Staff(QWidget *parent) :
     query = new QSqlQuery(database);
     ui->tableWidget->horizontalHeader()->sectionResizeMode(QHeaderView::Stretch);
     ui->tableWidget_2->horizontalHeader()->sectionResizeMode(QHeaderView::Stretch);
+
 }
 
 Staff::~Staff()
