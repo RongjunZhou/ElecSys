@@ -10,7 +10,6 @@ void AnalyseTable::addData(double data)
 {
     this->total+=data;
     count++;
-    this->average=data/count;
 }
 void AnalyseTable::addScore(int score){
     this->score+=score;
@@ -21,7 +20,7 @@ double AnalyseTable::getTotal()
 }
 double AnalyseTable::getAverge()
 {
-    return this->average;
+    return this->total/this->count;
 }
 int AnalyseTable::getScore()
 {
