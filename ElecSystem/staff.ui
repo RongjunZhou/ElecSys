@@ -229,7 +229,7 @@ color:rgb(0, 0, 0)</string>
          <x>30</x>
          <y>60</y>
          <width>631</width>
-         <height>46</height>
+         <height>54</height>
         </rect>
        </property>
        <layout class="QGridLayout" name="gridLayout_3">
@@ -607,7 +607,7 @@ color:rgb(0,0,0)</string>
          <second>0</second>
          <year>2022</year>
          <month>10</month>
-         <day>30</day>
+         <day>27</day>
         </datetime>
        </property>
        <property name="currentSection">
