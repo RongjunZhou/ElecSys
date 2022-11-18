@@ -311,9 +311,9 @@ font: 26pt &quot;隶书&quot;;</string>
        <widget class="QTableWidget" name="tableWidget_2">
         <property name="geometry">
          <rect>
-          <x>35</x>
+          <x>25</x>
           <y>101</y>
-          <width>511</width>
+          <width>521</width>
           <height>281</height>
          </rect>
         </property>
@@ -417,7 +417,7 @@ font: 26pt &quot;隶书&quot;;</string>
          <rect>
           <x>560</x>
           <y>40</y>
-          <width>101</width>
+          <width>111</width>
           <height>31</height>
          </rect>
         </property>
@@ -433,7 +433,7 @@ font: 26pt &quot;隶书&quot;;</string>
          <rect>
           <x>560</x>
           <y>90</y>
-          <width>101</width>
+          <width>111</width>
           <height>31</height>
          </rect>
         </property>
@@ -449,7 +449,7 @@ font: 26pt &quot;隶书&quot;;</string>
          <rect>
           <x>560</x>
           <y>140</y>
-          <width>101</width>
+          <width>111</width>
           <height>31</height>
          </rect>
         </property>
@@ -464,8 +464,8 @@ font: 26pt &quot;隶书&quot;;</string>
         <property name="geometry">
          <rect>
           <x>560</x>
-          <y>200</y>
-          <width>101</width>
+          <y>190</y>
+          <width>111</width>
           <height>31</height>
          </rect>
         </property>
@@ -473,7 +473,23 @@ font: 26pt &quot;隶书&quot;;</string>
          <string notr="true">font: 10pt &quot;微软雅黑&quot;;</string>
         </property>
         <property name="text">
-         <string>排序</string>
+         <string>按小区月用电排序</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_20">
+        <property name="geometry">
+         <rect>
+          <x>560</x>
+          <y>240</y>
+          <width>111</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: 10pt &quot;微软雅黑&quot;;</string>
+        </property>
+        <property name="text">
+         <string>按小区月电费排序</string>
         </property>
        </widget>
       </widget>

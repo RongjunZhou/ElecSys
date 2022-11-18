@@ -61,7 +61,6 @@ void Employee::on_pushButton_add_released()
     ui->tableWidget->scrollToBottom();
 }
 
-
 void Employee::on_pushButton_save_released()
 {
     QList<MemInfo> list;
@@ -137,11 +136,12 @@ void Employee::on_pushButton_save_2_released()
 }
 
 
-
+int count = 0;
 
 void Employee::on_pushButton_7_released()
 {
 
+    count = 1;
     ui->tableWidget_2->setRowCount(0);
     int month_all;
     QString area = ui->lineEdit->text();
@@ -249,12 +249,15 @@ void Employee::on_pushButton_7_released()
             ui->tableWidget_2->setItem(count,4,new QTableWidgetItem(query->value("charge").toString()));
         }
     }
+    ui->pushButton_19->setEnabled(true);
+    ui->pushButton_20->setEnabled(true);
 }
 
 
 //按家庭统计
 void Employee::on_pushButton_8_released()
 {
+    count = 0;
     ui->tableWidget_2->setRowCount(0);
     int month_all = 0;
     double fee_all = 0;
@@ -315,54 +318,67 @@ void Employee::on_pushButton_8_released()
         ui->tableWidget_2->setItem(i,1,new QTableWidgetItem(QString::number(powerlist[i])));
         ui->tableWidget_2->setItem(i,2,new QTableWidgetItem(QString::number(feelist[i])));
     }
+
+    ui->pushButton_19->setEnabled(false);
+    ui->pushButton_20->setEnabled(false);
 }
 
 
 //按小区统计
 void Employee::on_pushButton_9_released()
 {
+    count = 0;
     ui->tableWidget_2->setRowCount(0);
     int month_all = 0;
     double fee_all = 0;
+    double avepower = 0;
+    double avefee = 0;
     int check = 0;
 
-    QMap<QString, double> power, fee;
-    QList<double> powerlist ;
-    QList<double> feelist ;
-    QList<QString> infolist ;
+    QMap<QString, double> areapower, areafee,averagepower,averagefee,number;
+    QList<double> areapowerlist ;
+    QList<double> areafeelist ;
+    QList<QString> areainfolist ;
+    QList<double> averagepowerlist ;
+    QList<double> averagefeelist ;
 
     query->prepare("select * from gathar");
     query->exec();
     ui->tableWidget_2->clear();
-    ui->tableWidget_2->setColumnCount(3);
-    ui->tableWidget_2->setHorizontalHeaderLabels(QStringList() << "家庭相关信息" <<"年总用电量" << "年总电费");
+    ui->tableWidget_2->setColumnCount(5);
+    ui->tableWidget_2->setHorizontalHeaderLabels(QStringList() << "老小区名称" <<"月总用电量" << "月总电费" << "户平均电量" <<"户平均电费" );
 
     while(query->next()){
         month_all = query->value("high").toDouble()+query->value("low").toDouble();
         fee_all = query->value("charge").toDouble();
-        QString newarea = query->value("area").toString();
-        QString newhouse = query->value("house").toString();
-        QString newdate = query->value("date").toString();
-        QString newyear = newdate.mid(0,4);
-        QString newaddress = newarea + "-" + newhouse + "-" + newyear;
-        if(bool isok = power.contains(newaddress)){
-            month_all += power.value(newaddress);
-            power.insert(newaddress, month_all);
-
-            fee_all += fee.value(newaddress);
-            fee.insert(newaddress, fee_all);
+        QString areaaddress = query->value("area").toString();
+        if(bool isok = areapower.contains(areaaddress)){
+            month_all += areapower.value(areaaddress);
+            areapower.insert(areaaddress, month_all);
+            fee_all += areafee.value(areaaddress);
+            areafee.insert(areaaddress, fee_all);
+            check = number.value(areaaddress)+1;
+            averagepower.insert(areaaddress, month_all/number.value(areaaddress));
+            averagefee.insert(areaaddress, fee_all/number.value(areaaddress));
         }
         else{
-            power.insert(newaddress, month_all);
-            powerlist.append(month_all);
-            fee.insert(newaddress, fee_all);
-            feelist.append(fee_all);
-            infolist.append(newaddress);
-            check += 1;
+            check +=1;
+            areapower.insert(areaaddress, month_all);
+            areapowerlist.append(month_all);
+            areafee.insert(areaaddress, fee_all);
+            areafeelist.append(fee_all);
+            areainfolist.append(areaaddress);
+            number.insert(areaaddress, check);
+            averagepower.insert(areaaddress, month_all/number.value(areaaddress));
+            averagepowerlist.append(month_all/number.value(areaaddress));
+            averagefee.insert(areaaddress, fee_all/number.value(areaaddress));
+            averagefeelist.append(fee_all/number.value(areaaddress));
         }
     }
-    powerlist = power.values();
-    feelist = fee.values();
+    areapowerlist = areapower.values();
+    areafeelist = areafee.values();
+    averagepowerlist = averagepower.values();
+    averagefeelist = averagefee.values();
     query->clear();
 //    qDebug() << infolist[0];
 //    qDebug() << powerlist[0];
@@ -373,14 +389,18 @@ void Employee::on_pushButton_9_released()
 //    qDebug() << infolist[2];
 //    qDebug() << powerlist[2];
 //    qDebug() << feelist[2];
-    ui->tableWidget_2->setItem(0,0,new QTableWidgetItem(infolist[0]));
+    ui->tableWidget_2->setItem(0,0,new QTableWidgetItem(areainfolist[0]));
 
-    for(int i=0;i<infolist.size();i++){
+    for(int i=0;i<areainfolist.size();i++){
         ui->tableWidget_2->insertRow(i);
-        ui->tableWidget_2->setItem(i,0,new QTableWidgetItem(infolist[i]));
-        ui->tableWidget_2->setItem(i,1,new QTableWidgetItem(QString::number(powerlist[i])));
-        ui->tableWidget_2->setItem(i,2,new QTableWidgetItem(QString::number(feelist[i])));
+        ui->tableWidget_2->setItem(i,0,new QTableWidgetItem(areainfolist[i]));
+        ui->tableWidget_2->setItem(i,1,new QTableWidgetItem(QString::number(areapowerlist[i])));
+        ui->tableWidget_2->setItem(i,2,new QTableWidgetItem(QString::number(areafeelist[i])));
+        ui->tableWidget_2->setItem(i,3,new QTableWidgetItem(QString::number(averagepowerlist[i])));
+        ui->tableWidget_2->setItem(i,4,new QTableWidgetItem(QString::number(averagefeelist[i])));
     }
+    ui->pushButton_19->setEnabled(false);
+    ui->pushButton_20->setEnabled(false);
 }
 
 int compareMemInfoByhigh(MemInfo &a,MemInfo &b){
@@ -388,39 +408,74 @@ int compareMemInfoByhigh(MemInfo &a,MemInfo &b){
 }
 
 
-//排序
+//按月总用电量排序
 void Employee::on_pushButton_19_released()
 {
-    QString areaName;
-    QList<MemInfo> list;
-    int sizeNum=ui->tableWidget_2->rowCount();
-    qDebug()<<sizeNum;
-    for(int i=0;i<sizeNum;i++){
-        areaName  = ui->tableWidget_2->item(i,0)->text();
-        house = ui->tableWidget_2->item(i,1)->text();
-        date = ui->tableWidget_2->item(i,2)->text();
-        high = ui->tableWidget_2->item(i,3)->text().toDouble();
-        low = ui->tableWidget_2->item(i,4)->text().toDouble();
-        qDebug()<< areaName;
-
-        high = high + low;
-        charge = 0.5*high + 0.8*low;
-        ui->tableWidget_2->setItem(i,5,new QTableWidgetItem(charge));
-        list.append(MemInfo(areaName,house,date,high,low,charge));
+    if(count==1){
+        QList<MemInfo> list;
+        int sizeNum=ui->tableWidget_2->rowCount();
+        qDebug()<<sizeNum;
+        for(int i=0;i<sizeNum;i++){
+            list.append(MemInfo(
+                            ui->tableWidget_2->item(i,0)->text(),
+                            ui->tableWidget_2->item(i,1)->text(),
+                            ui->tableWidget_2->item(i,2)->text(),
+                            ui->tableWidget_2->item(i,3)->text().toDouble()+ui->tableWidget_2->item(i,4)->text().toDouble(),
+                            ui->tableWidget_2->item(i,4)->text().toDouble(),
+                            0.8*ui->tableWidget_2->item(i,3)->text().toDouble()+0.5*ui->tableWidget_2->item(i,4)->text().toDouble()
+                            ));
+        }
+        std::sort(list.begin(),list.end(),compareMemInfoByhigh);
+        ui->tableWidget_2->clear();
+        ui->tableWidget_2->setRowCount(0);
+        ui->tableWidget_2->setColumnCount(5);
+        ui->tableWidget_2->setHorizontalHeaderLabels(QStringList() << "老小区" << "家庭户名" << "用电年月" <<"月总用电量" << "电费");
+        for(MemInfo o:list){
+            int i = ui->tableWidget_2->rowCount();
+            ui->tableWidget_2->insertRow(i);
+            ui->tableWidget_2->setItem(i,0,new QTableWidgetItem(o.getarea()));
+            ui->tableWidget_2->setItem(i,1,new QTableWidgetItem(o.gethouse()));
+            ui->tableWidget_2->setItem(i,2,new QTableWidgetItem(o.getdate()));
+            ui->tableWidget_2->setItem(i,3,new QTableWidgetItem(QString::number(o.gethigh())));
+            ui->tableWidget_2->setItem(i,4,new QTableWidgetItem(QString::number(o.getcharge())));
+        }
     }
-    std::sort(list.begin(),list.end(),compareMemInfoByhigh);
-    ui->tableWidget_2->clear();
-    ui->tableWidget_2->setRowCount(0);
-    ui->tableWidget_2->setColumnCount(5);
-    ui->tableWidget_2->setHorizontalHeaderLabels(QStringList() << "老小区" << "家庭户名" << "用电年月" <<"月总用电量" << "电费");
-    for(MemInfo o:list){
-        int i = ui->tableWidget_2->rowCount();
-        ui->tableWidget_2->insertRow(i);
-        ui->tableWidget_2->setItem(i,0,new QTableWidgetItem(o.getarea()));
-        ui->tableWidget_2->setItem(i,1,new QTableWidgetItem(o.gethouse()));
-        ui->tableWidget_2->setItem(i,2,new QTableWidgetItem(o.getdate()));
-        ui->tableWidget_2->setItem(i,3,new QTableWidgetItem(QString::number(o.gethigh())));
-        ui->tableWidget_2->setItem(i,4,new QTableWidgetItem(QString::number(o.getcharge())));
+}
+
+int compareMemInfoByCharge(MemInfo &a,MemInfo &b){
+    return a.getcharge()>b.getcharge();
+}
+//按每月电费排序
+void Employee::on_pushButton_20_released()
+{
+    if(count==1){
+        QList<MemInfo> list;
+        int sizeNum=ui->tableWidget_2->rowCount();
+        qDebug()<<sizeNum;
+        for(int i=0;i<sizeNum;i++){
+            list.append(MemInfo(
+                            ui->tableWidget_2->item(i,0)->text(),
+                            ui->tableWidget_2->item(i,1)->text(),
+                            ui->tableWidget_2->item(i,2)->text(),
+                            ui->tableWidget_2->item(i,3)->text().toDouble()+ui->tableWidget_2->item(i,4)->text().toDouble(),
+                            ui->tableWidget_2->item(i,4)->text().toDouble(),
+                            0.8*ui->tableWidget_2->item(i,3)->text().toDouble()+0.5*ui->tableWidget_2->item(i,4)->text().toDouble()
+                            ));
+        }
+        std::sort(list.begin(),list.end(),compareMemInfoByCharge);
+        ui->tableWidget_2->clear();
+        ui->tableWidget_2->setRowCount(0);
+        ui->tableWidget_2->setColumnCount(5);
+        ui->tableWidget_2->setHorizontalHeaderLabels(QStringList() << "老小区" << "家庭户名" << "用电年月" <<"月总用电量" << "电费");
+        for(MemInfo o:list){
+            int i = ui->tableWidget_2->rowCount();
+            ui->tableWidget_2->insertRow(i);
+            ui->tableWidget_2->setItem(i,0,new QTableWidgetItem(o.getarea()));
+            ui->tableWidget_2->setItem(i,1,new QTableWidgetItem(o.gethouse()));
+            ui->tableWidget_2->setItem(i,2,new QTableWidgetItem(o.getdate()));
+            ui->tableWidget_2->setItem(i,3,new QTableWidgetItem(QString::number(o.gethigh())));
+            ui->tableWidget_2->setItem(i,4,new QTableWidgetItem(QString::number(o.getcharge())));
+        }
     }
 }
 

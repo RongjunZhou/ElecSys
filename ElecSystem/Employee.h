@@ -46,6 +46,8 @@ private slots:
 
     void on_pushButton_19_released();
 
+    void on_pushButton_20_released();
+
 private:
     Ui::Employee *ui;
     void *mainWindow;
