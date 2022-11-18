@@ -40,13 +40,14 @@ QWidget demandpage
 }</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="1">
+   <item row="0" column="0">
     <widget class="QStackedWidget" name="stackedWidget">
      <property name="styleSheet">
-      <string notr="true">QWidgit
+      <string notr="true">QStackedWidget
 {
-	border-image: url(:/image/eg4.png);
-}</string>
+	border-image: url(:/image/eg0.png);
+}
+</string>
      </property>
      <property name="currentIndex">
       <number>0</number>
@@ -63,7 +64,7 @@ QWidget demandpage
        </property>
        <property name="styleSheet">
         <string notr="true">font: 28pt &quot;华文行楷&quot;;
-color:rgb(0,0,0)</string>
+color: rgb(255, 255, 255);</string>
        </property>
        <property name="text">
         <string>电力统计管理系统</string>
@@ -168,7 +169,7 @@ border-image: url(:/image/pic.png);</string>
         <item row="0" column="1">
          <widget class="QLabel" name="label_5">
           <property name="styleSheet">
-           <string notr="true">color: rgb(0,0,0);
+           <string notr="true">color: rgb(255, 255, 255);
 font: 10pt &quot;微软雅黑&quot;;</string>
           </property>
           <property name="text">
@@ -201,7 +202,7 @@ font: 10pt &quot;微软雅黑&quot;;</string>
        </property>
        <property name="styleSheet">
         <string notr="true">font: 28pt &quot;华文行楷&quot;;
-color:rgb(0, 0, 0)</string>
+color: rgb(255, 255, 255);</string>
        </property>
        <property name="text">
         <string>查看报表</string>
@@ -229,12 +230,15 @@ color:rgb(0, 0, 0)</string>
          <x>30</x>
          <y>60</y>
          <width>631</width>
-         <height>54</height>
+         <height>60</height>
         </rect>
        </property>
        <layout class="QGridLayout" name="gridLayout_3">
         <item row="0" column="4">
          <widget class="QLabel" name="label_8">
+          <property name="styleSheet">
+           <string notr="true">color: rgb(255, 255, 255);</string>
+          </property>
           <property name="text">
            <string>输入户号</string>
           </property>
@@ -245,6 +249,9 @@ color:rgb(0, 0, 0)</string>
         </item>
         <item row="0" column="2">
          <widget class="QLabel" name="label_7">
+          <property name="styleSheet">
+           <string notr="true">color: rgb(255, 255, 255);</string>
+          </property>
           <property name="text">
            <string>输入小区名</string>
           </property>
@@ -282,6 +289,9 @@ color:rgb(0, 0, 0)</string>
         </item>
         <item row="0" column="0">
          <widget class="QLabel" name="label_6">
+          <property name="styleSheet">
+           <string notr="true">color: rgb(255, 255, 255);</string>
+          </property>
           <property name="text">
            <string>选择月份</string>
           </property>
@@ -289,6 +299,9 @@ color:rgb(0, 0, 0)</string>
         </item>
         <item row="0" column="6">
          <widget class="QPushButton" name="pushButton_7">
+          <property name="styleSheet">
+           <string notr="true">font: 12pt &quot;微软雅黑&quot;;</string>
+          </property>
           <property name="text">
            <string>查询</string>
           </property>
@@ -296,6 +309,9 @@ color:rgb(0, 0, 0)</string>
         </item>
         <item row="1" column="0" colspan="6">
          <widget class="QLabel" name="label_9">
+          <property name="styleSheet">
+           <string notr="true">color: rgb(255, 255, 255);</string>
+          </property>
           <property name="text">
            <string>不输入户号返回该小区全部记录</string>
           </property>
@@ -303,6 +319,9 @@ color:rgb(0, 0, 0)</string>
         </item>
         <item row="1" column="6">
          <widget class="QCheckBox" name="checkBox">
+          <property name="styleSheet">
+           <string notr="true">color: rgb(255, 255, 255);</string>
+          </property>
           <property name="text">
            <string>每次清空</string>
           </property>
@@ -323,9 +342,9 @@ color:rgb(0, 0, 0)</string>
        <property name="geometry">
         <rect>
          <x>30</x>
-         <y>110</y>
+         <y>120</y>
          <width>631</width>
-         <height>311</height>
+         <height>301</height>
         </rect>
        </property>
        <attribute name="horizontalHeaderCascadingSectionResizes">
@@ -373,7 +392,7 @@ color:rgb(0, 0, 0)</string>
        </property>
        <property name="styleSheet">
         <string notr="true">font: 28pt &quot;华文行楷&quot;;
-color:rgb(0,0,0)</string>
+color: rgb(255, 255, 255);</string>
        </property>
        <property name="text">
         <string>扩容建议</string>
@@ -607,7 +626,7 @@ color:rgb(0,0,0)</string>
          <second>0</second>
          <year>2022</year>
          <month>10</month>
-         <day>27</day>
+         <day>26</day>
         </datetime>
        </property>
        <property name="currentSection">
@@ -625,6 +644,9 @@ color:rgb(0,0,0)</string>
          <width>71</width>
          <height>20</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 8pt &quot;微软雅黑&quot;;</string>
        </property>
        <property name="text">
         <string>开始分析</string>

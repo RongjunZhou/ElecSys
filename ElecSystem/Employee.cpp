@@ -12,7 +12,10 @@ Employee::Employee(QWidget *parent) :
     this->setWindowTitle("用户端（统计员）");
     database=QSqlDatabase::addDatabase("QSQLITE","employee");
     database.setDatabaseName("employee.db");
-    database.open();
+    if(!database.open()){
+        QMessageBox::information(this,"错误","数据库打开失败");
+        this->close();
+    }
     query = new QSqlQuery(database);
     query->exec("create table gathar(area Not Null,house Not Null,date Not Null,high Not Null,low Not Null,charge)");
 }

@@ -10,7 +10,10 @@ MainWindow::MainWindow(QWidget *parent)
     this->setWindowIcon(QIcon(":/icons/logo.ico"));
     database = QSqlDatabase::addDatabase("QSQLITE","login");
     database.setDatabaseName("data.db");
-    database.open();
+    if(!database.open()){
+        QMessageBox::information(this,"错误","数据库打开失败");
+        this->close();
+    }
     query = new QSqlQuery(database);
     query->exec("create table userInfo(username unique,password,role)");
     query->exec("insert into userInfo(username,password,role) values ('郑霄鹏','123','1')");

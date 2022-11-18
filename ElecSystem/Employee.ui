@@ -39,6 +39,10 @@ QStackedWidget QPushButton
 }
 QStackedWidget QPushButton:hover
 {
+	background-color: rgb(170, 170, 127);
+}
+QStackedWidget QPushButton:disabled
+{
 	background-color: rgb(160,160,160);
 }</string>
   </property>
