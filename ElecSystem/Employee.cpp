@@ -418,7 +418,7 @@ void Employee::on_pushButton_19_released()
         ui->tableWidget_2->clear();
         ui->tableWidget_2->setRowCount(0);
         ui->tableWidget_2->setColumnCount(5);
-        ui->tableWidget_2->setHorizontalHeaderLabels(QStringList() << "老小区" << "家庭户名" << "用电年月" <<"月总用电量" << "电费");
+        ui->tableWidget_2->setHorizontalHeaderLabels(QStringList() << "老小区名称" <<"月总用电量" << "月总电费" << "户平均电量" <<"户平均电费");
         for(AnalyseTableForEmployee o:list){
             int i = ui->tableWidget_2->rowCount();
             ui->tableWidget_2->insertRow(i);
@@ -459,7 +459,7 @@ void Employee::on_pushButton_20_released()
         ui->tableWidget_2->clear();
         ui->tableWidget_2->setRowCount(0);
         ui->tableWidget_2->setColumnCount(5);
-        ui->tableWidget_2->setHorizontalHeaderLabels(QStringList() << "老小区" << "家庭户名" << "用电年月" <<"月总用电量" << "电费");
+        ui->tableWidget_2->setHorizontalHeaderLabels(QStringList() << "老小区名称" <<"月总用电量" << "月总电费" << "户平均电量" <<"户平均电费");
         for(AnalyseTableForEmployee o:list){
             int i = ui->tableWidget_2->rowCount();
             ui->tableWidget_2->insertRow(i);
@@ -499,7 +499,7 @@ void Employee::on_pushButton_21_released()
         ui->tableWidget_2->clear();
         ui->tableWidget_2->setRowCount(0);
         ui->tableWidget_2->setColumnCount(5);
-        ui->tableWidget_2->setHorizontalHeaderLabels(QStringList() << "老小区" << "家庭户名" << "用电年月" <<"月总用电量" << "电费");
+        ui->tableWidget_2->setHorizontalHeaderLabels(QStringList() << "老小区名称" <<"月总用电量" << "月总电费" << "户平均电量" <<"户平均电费");
         for(AnalyseTableForEmployee o:list){
             int i = ui->tableWidget_2->rowCount();
             ui->tableWidget_2->insertRow(i);
@@ -539,7 +539,7 @@ void Employee::on_pushButton_22_released()
         ui->tableWidget_2->clear();
         ui->tableWidget_2->setRowCount(0);
         ui->tableWidget_2->setColumnCount(5);
-        ui->tableWidget_2->setHorizontalHeaderLabels(QStringList() << "老小区" << "家庭户名" << "用电年月" <<"月总用电量" << "电费");
+        ui->tableWidget_2->setHorizontalHeaderLabels(QStringList() << "老小区名称" <<"月总用电量" << "月总电费" << "户平均电量" <<"户平均电费");
         for(AnalyseTableForEmployee o:list){
             int i = ui->tableWidget_2->rowCount();
             ui->tableWidget_2->insertRow(i);

@@ -352,6 +352,9 @@ font: 26pt &quot;隶书&quot;;</string>
           <height>16</height>
          </rect>
         </property>
+        <property name="styleSheet">
+         <string notr="true">color:rgb(255, 255, 255)</string>
+        </property>
         <property name="text">
          <string>老小区</string>
         </property>
@@ -375,6 +378,9 @@ font: 26pt &quot;隶书&quot;;</string>
           <height>20</height>
          </rect>
         </property>
+        <property name="styleSheet">
+         <string notr="true">color:rgb(255, 255, 255)</string>
+        </property>
         <property name="text">
          <string>家庭户名</string>
         </property>
@@ -397,6 +403,9 @@ font: 26pt &quot;隶书&quot;;</string>
           <width>51</width>
           <height>20</height>
          </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color:rgb(255, 255, 255)</string>
         </property>
         <property name="text">
          <string>用电年月</string>
@@ -522,6 +531,23 @@ font: 26pt &quot;隶书&quot;;</string>
         </property>
         <property name="text">
          <string>按户平均电费排序</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_8">
+        <property name="geometry">
+         <rect>
+          <x>230</x>
+          <y>10</y>
+          <width>181</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 255, 255);
+font: 26pt &quot;隶书&quot;;</string>
+        </property>
+        <property name="text">
+         <string>统计用户</string>
         </property>
        </widget>
       </widget>
